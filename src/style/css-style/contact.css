@@ -1,0 +1,133 @@
+h1,h2,h3,h4,h5,h6,p,*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --txtcolor: #26bdf7;
+    --bgcolor: #323f54;
+    --bgOverlay: #323f5499;
+    --opacityBG: #323f54ee;
+    --greenBtn: linear-gradient(to right, #00b4db, #0083b0);
+    --txtGradient: linear-gradient(to right, #00b4db, #0083b0);
+    --light : #f1f1f1;
+}
+body{
+    background-color: #ecf0f1 !important;
+    font-family: 'Roboto', cursive !important;
+}
+.navbar{
+    margin: 0 !important;
+}
+.navbar .nav-item .nav-link h6{
+    margin-bottom: 0;
+
+}
+
+/* -------------------- */
+.main{
+    background: var(--txtGradient);
+    height: 430px;
+}
+.main-form{
+    padding: 28px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 8px;
+    margin-top: -60px;
+}
+.content-list h4{
+    font-family: 'Merienda' cursive;
+}
+.btn{
+    width: 80px;
+}
+
+
+.con-icon{
+    height: 150px;
+}
+.con-icon a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+}
+.con-icon i{
+    width: 50px;
+    color: #fff;
+    font-size: 35px;
+}
+.con-icon a:hover{
+    color: #ecf0f1;
+}
+
+.con-line{
+    max-width: 300px;
+    height: 1px;
+    background-color: #fff;
+}
+.con-isocial i{
+    padding: 12px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    font-size: 25px;
+    color: #fff;
+}
+.con-isocial i:hover{
+    color: #ecf0f1;
+}
+
+@media only screen and (max-width: 768px){
+    .main-form{
+        margin-top: 0;
+    }
+}
+
+.hiden-box{
+    width: 100%;
+    min-height: 470px;
+}
+
+
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.input-group{
+    position: relative;
+}
+.box-form .main-form input{
+    font-weight: bold;
+}
+label{
+    color: #616161;
+    font-weight: 600;
+    background-color: #fff;
+    padding: 0 4px;
+    position: absolute;
+    top: 8px;
+    left: 15px;
+    transition: .1s linear;
+    z-index: 5;
+    font-family: 'Roboto', cursive;
+}
+label[for=phone]{
+    position: absolute;
+    left: 70px;
+    top: 8px;
+}
+.input-group input:focus ~ label,
+.input-group textarea:focus ~ label,
+.input-group select:focus ~ label{
+    top: -15px;
+    font-size: 12px;
+}
+.input-group input:valid ~ label,
+.input-group textarea:valid ~ label,
+.input-group select:valid ~ label{
+    top: -15px;
+    font-size: 14px;
+}
+

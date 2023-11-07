@@ -1,0 +1,32 @@
+h1,h2,h3,h4,h5,h6,p,*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Chenla','Roboto' !important;
+}
+.navbar{
+    margin: 0 !important;
+}
+.navbar .nav-item .nav-link h6{
+    margin-bottom: 0;
+}
+
+.main-about-content{
+    background: var(--txtGradient);
+}
+.left-about{
+    width: auto;
+    height: 380px !important;
+    padding-top: 12px;
+    padding-right: 12px;
+    height: auto;
+    border: 1px solid #fff;
+    transition: .2s ease-out;
+    overflow: hidden;
+    cursor: pointer;
+}
+.left-about:hover{
+    padding: 0px;
+}

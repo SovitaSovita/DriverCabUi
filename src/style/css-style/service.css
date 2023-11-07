@@ -1,0 +1,36 @@
+.img-sv{
+    width: 100%;
+    height: 280px;
+}
+.img-sv img{
+    width: 100%;
+    height: 100%;
+    filter: grayscale(0);
+    transition: .1s linear;
+    object-fit: cover;
+}
+.line-hv{
+    width: 0;
+    height: 2px;
+    background-color: #26bdf7;
+    transition: .7s ease-in-out;
+}
+.img-sv:hover img{
+    filter: grayscale(50%);
+}
+.card-content:hover .line-hv{
+    width: 100%;
+}
+.readStory a{
+    text-decoration: none;
+}
+.onbg{
+    top: 30%;
+    right: 10%;
+}
+.offer-box-content span.posttext{
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}

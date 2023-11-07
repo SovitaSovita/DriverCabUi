@@ -3,7 +3,7 @@ import { toast } from "react-hot-toast"
 import { Navigate } from "react-router-dom";
 
 //export const BASE_URL = `http://16.170.232.28:8080`
-export const BASE_URL = `hhttps://drivercap.onrender.com/api/v1`
+export const BASE_URL = `https://drivercap.onrender.com/api/v1`
 export const BASE_URL_UnAuth = `https://drivercap.onrender.com`
 
 export const token = localStorage.getItem("token");

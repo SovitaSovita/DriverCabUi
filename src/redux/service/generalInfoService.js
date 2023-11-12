@@ -46,3 +46,18 @@ export const update_descriptionInfo = async (req) => {
         console.log(e)
     }
 }
+export const update_generalInfo = async (req, fileImg) => {
+    try {
+        const formData = new FormData();
+        formData.append('imageFile', fileImg);
+        formData.append('timeWork ', req.timeWork );
+        formData.append('description ', req.description );
+
+        const response = await API_HEADER.put(`/updateInfo`,formData)
+        return response
+    }
+    catch (e) {
+        console.log(e)
+    }
+}
+

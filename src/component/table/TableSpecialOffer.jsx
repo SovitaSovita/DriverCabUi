@@ -13,19 +13,22 @@ import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutl
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import PopUpDelete from '../PopUpDelete';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
+import ExpandCircleDownOutlinedIcon from '@mui/icons-material/ExpandCircleDownOutlined';
 
 import { add_popular, delete_popular, get_popular, update_popular } from '../../redux/service/TableListService';
 import { BASE_URL, notifyError, notifySuccess } from '../../redux/Constants';
 import AlertMesages from '../AlertMesages';
 import { Button, Spinner } from 'flowbite-react';
 import { useDispatch } from 'react-redux';
-import { setIsGet, setListPopular } from '../../redux/slice/ListSlice';
+import { setIsGet, setListOffer } from '../../redux/slice/ListSlice';
 import { useSelector } from 'react-redux';
-import EditTablePopularPop from '../editModal/EditTablePopularPop';
 import TableSkeleton from '../skeleton/TableSkeleton';
+import { get_specialOffer } from '../../redux/service/specialOfferService';
+import EditTableSpecialOfferPop from '../editModal/EditTableSpecialOfferPop';
+import ModalDetail from '../editModal/ModalDetail';
 
 
-const TablePopular = () => {
+const TableSpecialOffer = () => {
 
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -39,26 +42,32 @@ const TablePopular = () => {
         setPage(0);
     };
 
+
+    const dispatch = useDispatch();
+    const data = useSelector((state) => state.allList.listOffer)
+    const subList = data?.map((item) => {
+        return item?.imgList
+    })
+
+    const isGet = useSelector((state) => state.allList.isGet)
+    const newData = data?.map((item, index) => ({ ...item, no: index + 1 }));
+    const [isLoading, setIsLoading] = useState(false)
+
     const columns = [
         { id: 'no', label: 'No', minWidth: 70 },
         { id: 'title', label: 'Title', minWidth: 100 },
         { id: 'duration', label: 'Duration', minWidth: 60 },
         { id: 'price', label: 'Price', minWidth: 60 },
-        {
-            id: 'image',
-            label: 'Image',
-            minWidth: 170,
-        },
-        { id: '', label: 'Action', minWidth: 70 },
     ];
 
-    const dispatch = useDispatch();
-    const data = useSelector((state) => state.allList.listPopular)
-    const isGet = useSelector((state) => state.allList.isGet)
-    const newData = data?.map((item, index) => ({ ...item, no: index + 1 }));
-
-    const [isLoading, setIsLoading] = useState(false)
-
+    for (let i = 1;i <= subList?.length - 1;i++) {
+        columns.push({
+            id: `fileName${i}`,
+            label: `Picture${i}`,
+            minWidth: 60,
+        });
+    }
+    columns.push({ id: '', label: 'Action', minWidth: 70 });
 
     useEffect(() => {
         table()
@@ -68,9 +77,9 @@ const TablePopular = () => {
     const table = () => {
         setIsLoading(true)
 
-        get_popular().then((res) => {
+        get_specialOffer().then((res) => {
             setIsLoading(false)
-            dispatch(setListPopular(res?.data?.payload))
+            dispatch(setListOffer(res?.data?.payload))
             dispatch(setIsGet(false))
 
         }).catch((e) => {
@@ -93,6 +102,8 @@ const TablePopular = () => {
 
     const [openDeleteModal, setOpenDeleteModal] = useState(false);
     const [id, setId] = useState({})
+    const [openDetailModal, setOpenDetailModal] = useState(false);
+    const [detailData, setDetailData] = useState(false);
 
     const handleDeleteOpen = (id) => {
         setId(id)
@@ -101,6 +112,15 @@ const TablePopular = () => {
 
     const handleDeleteClose = () => {
         setOpenDeleteModal(false);
+    };
+
+    const handleDetailOpen = (data) => {
+        setDetailData(data)
+        setOpenDetailModal(true);
+    };
+
+    const handleDetailClose = () => {
+        setOpenDetailModal(false);
     };
 
     return (
@@ -121,7 +141,7 @@ const TablePopular = () => {
                                 <Table aria-label="sticky table">
                                     <TableHead>
                                         <TableRow>
-                                            {columns?.map((column) => (
+                                            {columns?.map((column, index) => (
                                                 <TableCell
                                                     key={column.id}
                                                     align={column.align}
@@ -150,10 +170,18 @@ const TablePopular = () => {
                                                         <TableCell>
                                                             {row?.price}
                                                         </TableCell>
+                                                        {
+                                                            row.imgList
+                                                                ?.map((item) => {
+                                                                    return (
+                                                                        <TableCell>
+                                                                            <img src={`${BASE_URL}/images?fileName=${item?.fileName}`} alt="Image" className='w-28 h-16 rounded object-cover' />
+                                                                        </TableCell>
+                                                                    )
+                                                                })
+                                                        }
                                                         <TableCell>
-                                                            <img src={`${BASE_URL}/images?fileName=${row?.imageFile}`} alt="Image" className='w-28 h-16 rounded object-cover' />
-                                                        </TableCell>
-                                                        <TableCell>
+                                                            <ExpandCircleDownOutlinedIcon onClick={() => handleDetailOpen(row)} sx={{ fontSize: '28px' }} className='text-green-500 mr-2 border rounded-full bg-green-100 p-1 cursor-pointer' />
                                                             <ModeEditOutlineOutlinedIcon className='text-blue-500 mr-2 border rounded-full bg-blue-100 p-1 cursor-pointer'
                                                                 onClick={() => handleEditOpen(row)} sx={{ fontSize: '28px' }} />
                                                             <DeleteOutlinedIcon onClick={() => handleDeleteOpen(row.id)} sx={{ fontSize: '28px' }} className='text-red-500 mr-2 border rounded-full bg-red-100 p-1 cursor-pointer' />
@@ -167,7 +195,7 @@ const TablePopular = () => {
                             <TablePagination
                                 rowsPerPageOptions={[10, 25, 100]}
                                 component="div"
-                                count={newData.length}
+                                count={newData?.length}
                                 rowsPerPage={rowsPerPage}
                                 page={page}
                                 onPageChange={handleChangePage}
@@ -177,10 +205,27 @@ const TablePopular = () => {
                     </div>
                 )
             }
-            <EditTablePopularPop isOpen={openEditModal} closeModal={handleEditClose} oldData={getOldData} />
-            <PopUpDelete isOpen={openDeleteModal} closeModal={handleDeleteClose} id={id} identify={"popular"}/>
+            <EditTableSpecialOfferPop isOpen={openEditModal} closeModal={handleEditClose} oldData={getOldData} />
+            <PopUpDelete isOpen={openDeleteModal} closeModal={handleDeleteClose} id={id} identify={"offer"} />
+
+            <ModalDetail isOpen={openDetailModal} closeModal={handleDetailClose} data={detailData}>
+                {
+                    detailData?.imgList?.map((item) => {
+                            return (
+                                <div className='grid-cols-6 mt-6'>
+                                    <div className='col-span-6'>
+                                        <div>{item?.description}</div>
+                                    </div>
+                                    <div className='col-span-6 mt-4'>
+                                        <img src={`${BASE_URL}/images?fileName=${item?.fileName}`} alt="Image" className='w-full h-full rounded object-cover mb-2' />
+                                    </div>
+                                </div>
+                            )
+                        })
+                }
+            </ModalDetail>
         </>
     )
 }
 
-export default TablePopular
+export default TableSpecialOffer

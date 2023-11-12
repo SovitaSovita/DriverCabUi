@@ -7,6 +7,7 @@ import { notifySuccess } from '../redux/Constants';
 import { Spinner } from 'flowbite-react';
 import { delete_slider } from '../redux/service/sliderService';
 import { delete_popular } from '../redux/service/TableListService';
+import { delete_specialOffer } from '../redux/service/specialOfferService';
 
 export default function PopUpDelete({ isOpen, closeModal, id, identify }) {
     const dispatch = useDispatch();
@@ -41,6 +42,19 @@ export default function PopUpDelete({ isOpen, closeModal, id, identify }) {
         }
         if (identify === "popular") {
             delete_popular(id).then((res) => {
+                setIsLoading(true)
+                if (res?.status == 200) {
+                    notifySuccess("Deleted Successfully.")
+                    dispatch(setIsGet(true))
+                    setIsLoading(false)
+                    closeModal()
+                }
+                setIsLoading(false)
+                closeModal()
+            })
+        }
+        if (identify === "offer") {
+            delete_specialOffer(id).then((res) => {
                 setIsLoading(true)
                 if (res?.status == 200) {
                     notifySuccess("Deleted Successfully.")

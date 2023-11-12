@@ -21,6 +21,7 @@ import DetinationDetail from './pages/frontEndPages/DetinationDetail';
 import ParkageDetail from './pages/frontEndPages/ParkageDetail';
 import TourTypeDetail from './pages/frontEndPages/TourTypeDetail';
 import GeneralInfoPage from './pages/GeneralInfoPage';
+import SpecialOfferPage from './pages/SpecialOfferPage';
 
 function App() {
 
@@ -43,6 +44,7 @@ function App() {
         <Route path='popular' element={<PopularPage />} />
         <Route path='tourtype' element={<TourTypePage />} />
         <Route path='slider' element={<SliderPage />} />
+        <Route path='offer' element={<SpecialOfferPage />} />
         <Route path='general' element={<GeneralInfoPage />} />
         <Route path='account' element={<AccountPage />} />
       </Route>

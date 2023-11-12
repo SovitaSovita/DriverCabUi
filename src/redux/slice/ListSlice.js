@@ -4,6 +4,7 @@ const initialState = {
     listPopular: [],
     listTourType: [],
     listSlide: [],
+    listOffer: [],
     isGet: false,
 }
 
@@ -16,12 +17,13 @@ export const ListSlice = createSlice({
            state.listPopular = action.payload
         },
         setListTourType : (state, action) => {
-        // console.log("action.payload", action.payload)
            state.listTourType = action.payload
         },
         setListSlide : (state, action) => {
-        // console.log("action.payload", action.payload)
            state.listSlide = action.payload
+        },
+        setListOffer : (state, action) => {
+           state.listOffer = action.payload
         },
         setIsGet : (state, action) => {
            state.isGet = action.payload
@@ -29,5 +31,5 @@ export const ListSlice = createSlice({
     },
 })
 
-export const {setListPopular, setListTourType, setListSlide, setIsGet} = ListSlice.actions
+export const {setListPopular, setListTourType, setListSlide, setListOffer, setIsGet} = ListSlice.actions
 export default ListSlice.reducer

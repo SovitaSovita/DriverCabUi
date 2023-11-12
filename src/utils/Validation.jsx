@@ -43,3 +43,19 @@ export const decriptionSchema = Yup.object().shape({
   whyUsDesc: Yup.string().required('Required'),
   frequentlyQuestionDesc: Yup.string().required('Required'),
 });
+
+
+export const generalInfoSchema = Yup.object().shape({
+  timeWork : Yup.string().required('Required'),
+  description: Yup.string().required('Required'),
+});
+
+export const specialOfferSchema = Yup.object().shape({
+  title: Yup.string().required('Required'),
+  price: Yup.string().required('Required'),
+  duration: Yup.string().required('Required'),
+ // descriptions: Yup.array().of(
+   // Yup.string().required('Description is required')
+  //),
+  //imgList: Yup.mixed().required('Image is required'),
+});

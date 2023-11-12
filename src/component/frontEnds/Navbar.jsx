@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import logo from '../../assets/images/logo/logo.png'
 import Header from './Header'
@@ -11,11 +11,22 @@ import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 import InfoIcon from '@mui/icons-material/Info';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
+import { useDispatch, useSelector } from 'react-redux';
+import { get_footer } from '../../redux/service/generalInfoService';
+import { setFooterInfo } from '../../redux/slice/LoadingSlice';
 
 function Navbar() {
 
     const location = useLocation();
     const [isBurgerOpen, setIsBurgerOpen] = useState(false);
+    const dispatch = useDispatch()
+    const footerInfo = useSelector((state) => state.loading.footerInfo)
+
+    useEffect(() => {
+        get_footer().then((res) => {
+            dispatch(setFooterInfo(res?.data?.payload))
+        })
+    }, [])
 
     const toggleBurger = () => {
         setIsBurgerOpen(!isBurgerOpen);
@@ -31,9 +42,9 @@ function Navbar() {
                 }>
                 <Header />
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                    <a href="https://flowbite.com/" className="flex items-center">
+                    <Link to={'/'} className="flex items-center">
                         <img src={logo} className="h-12 mr-3" alt="Logo" />
-                    </a>
+                    </Link>
 
                     <button
                         onClick={toggleBurger}
@@ -81,7 +92,7 @@ function Navbar() {
                                 </Link>
                             </li>
                             <li>
-                                <a href="#"
+                                <a href={footerInfo?.fbUrl} target='_blank'
                                     className='block py-2 pl-3 pr-4 hover:text-root_low rounded md:bg-transparent md:p-0 transition-all'>
                                     <div className='flex flex-col items-center'>
                                         <FacebookOutlinedIcon />

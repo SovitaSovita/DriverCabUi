@@ -24,7 +24,7 @@ function AboutPage() {
                 </div>
                 <div className="lg:col-span-8 md:col-span-7 phone:col-span-8">
                     <div className="right-about mt-5">
-                        <p className="text-white leading-loose"><span class="text-lg font-extrabold text-white dark:text-white font-merienda">Cambodia Cap Driver <MessageOutlinedIcon /> </span>
+                        <p className="text-white leading-loose"><span className="text-lg font-extrabold text-white dark:text-white font-merienda">Cambodia Cap Driver <MessageOutlinedIcon /> </span>
                             {
                                 data?.description
                             }

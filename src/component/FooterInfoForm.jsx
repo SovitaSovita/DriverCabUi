@@ -4,21 +4,25 @@ import { footerInfoSchema } from '../utils/Validation'
 
 import SaveAsOutlinedIcon from '@mui/icons-material/SaveAsOutlined';
 import { Button, Spinner, Table } from 'flowbite-react';
-import { get_desciptionInfo, get_footer } from '../redux/service/generalInfoService';
+import { get_desciptionInfo, get_footer, get_generalinfo } from '../redux/service/generalInfoService';
 import { useSelector } from 'react-redux';
 import EditFooterInfo from './editModal/EditFooterInfo';
 import { useDispatch } from 'react-redux';
-import { setDescripInfo, setFooterInfo } from '../redux/slice/LoadingSlice';
+import { setDescripInfo, setFooterInfo, setGeneralInfo } from '../redux/slice/LoadingSlice';
 import EditDescripInfo from './editModal/EditDescripInfo';
 import TextSkeleton from './skeleton/TextSkeleton';
 import { TableRow } from 'flowbite-react/lib/esm/components/Table/TableRow';
+import { BASE_URL } from '../redux/Constants';
+import EditGeneralInfo from './editModal/EditGeneralInfo';
 
 function FooterInfoForm() {
 
     const [isLoading, setIsLoading] = useState(false)
+    const [isLoadingG, setIsLoadingG] = useState(false)
 
     const footerInfo = useSelector((state) => state.loading.footerInfo)
     const decripInfo = useSelector((state) => state.loading.decripInfo)
+    const generalInfo = useSelector((state) => state.loading.generalInfo)
 
     const dispatch = useDispatch()
 
@@ -38,9 +42,18 @@ function FooterInfoForm() {
         })
     }, [])
 
+    useEffect(() => {
+        setIsLoadingG(true)
+        get_generalinfo().then((res) => {
+            dispatch(setGeneralInfo(res?.data?.payload))
+            setIsLoadingG(false)
+        })
+    }, [])
+
 
     const [openEditModal, setOpenEditModal] = useState(false);
     const [openEditModalDesc, setOpenEditModalDesc] = useState(false);
+    const [openEditModalGene, setOpenEditModalGene] = useState(false);
 
     const handleEditOpen = () => {
         setOpenEditModal(true);
@@ -55,6 +68,13 @@ function FooterInfoForm() {
 
     const handleEditCloseDesc = () => {
         setOpenEditModalDesc(false);
+    };
+    const handleEditOpenGene = () => {
+        setOpenEditModalGene(true);
+    };
+
+    const handleEditCloseGene = () => {
+        setOpenEditModalGene(false);
     };
 
 
@@ -154,9 +174,35 @@ function FooterInfoForm() {
                         }
                     </Table.Body>
                 </Table>
+
+                <div className='flex justify-between items-center mt-12'>
+                    <div className='font-semibold'>Edit Description</div>
+                    <Button className="bg-root_low" onClick={handleEditOpenGene}>Update Information</Button>
+                </div>
+
+                {/* GeneralInfo endPoint */}
+                <Table striped className='mt-6 mb-12'>
+                    <Table.Head>
+                        <Table.HeadCell>Time Work</Table.HeadCell>
+                        <Table.HeadCell>Description</Table.HeadCell>
+                        <Table.HeadCell>Image(AboutUs)</Table.HeadCell>
+                    </Table.Head>
+                    <Table.Body className="divide-y">
+                        {
+                            isLoadingG ? <TextSkeleton /> : (
+                                <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                                    <Table.Cell>{generalInfo?.timeWork}</Table.Cell>
+                                    <Table.Cell>{generalInfo?.description}</Table.Cell>
+                                    <Table.Cell><img src={`${BASE_URL}/images?fileName=${generalInfo?.image}`} alt="Image" className='w-28 h-16 rounded object-cover' /></Table.Cell>
+                                </Table.Row>
+                            )
+                        }
+                    </Table.Body>
+                </Table>
             </div>
             <EditFooterInfo isOpen={openEditModal} closeModal={handleEditClose} data={footerInfo} />
             <EditDescripInfo isOpen={openEditModalDesc} closeModal={handleEditCloseDesc} data={decripInfo} />
+            <EditGeneralInfo isOpen={openEditModalGene} closeModal={handleEditCloseGene} data={generalInfo}/>
         </div>
     )
 }

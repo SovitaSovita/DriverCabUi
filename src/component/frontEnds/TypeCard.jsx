@@ -31,7 +31,7 @@ function TypeCard() {
                     <div className='grid grid-cols-12 gap-4'>
                         {
                             data.map((item) => (
-                                <div className="lg:col-span-6 md:col-span-6 col-span-12 mb-6">
+                                <div key={item.id} className="lg:col-span-6 md:col-span-6 col-span-12 mb-6">
                                     <div className="card-content shadow border">
                                         <div className="img-sv">
                                             <img src={`${BASE_URL}/images?fileName=${item?.image}`} className="w-full h-80 rounded" />

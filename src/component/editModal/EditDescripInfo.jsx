@@ -98,7 +98,7 @@ function EditDescripInfo(props) {
                                                     <div className="">
                                                         <div className=''>
                                                             <div className="mb-4">
-                                                                <label for="findTourDesc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Find Tour</label>
+                                                                <label for="findTourDesc" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Find Tour</label>
                                                                 <Field
                                                                     type="findTourDesc"
                                                                     placeholder="Type here"
@@ -113,7 +113,7 @@ function EditDescripInfo(props) {
                                                                 ) : null}
                                                             </div>
                                                             <div className="mb-4">
-                                                                <label for="popularTourDesc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Popular Tour</label>
+                                                                <label for="popularTourDesc" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Popular Tour</label>
                                                                 <Field
                                                                     type="text"
                                                                     placeholder="Type here"
@@ -128,7 +128,7 @@ function EditDescripInfo(props) {
                                                                 ) : null}
                                                             </div>
                                                             <div className="mb-4">
-                                                                <label for="serviceDesc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Service</label>
+                                                                <label for="serviceDesc" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Service</label>
                                                                 <Field
                                                                     type="text"
                                                                     placeholder="url here"
@@ -143,7 +143,7 @@ function EditDescripInfo(props) {
                                                                 ) : null}
                                                             </div>
                                                             <div className="mb-4">
-                                                                <label for="mostVisitedDesc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Most View</label>
+                                                                <label for="mostVisitedDesc" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Most View</label>
                                                                 <Field
                                                                     type="text"
                                                                     placeholder="Facebook URL"
@@ -158,7 +158,7 @@ function EditDescripInfo(props) {
                                                                 ) : null}
                                                             </div>
                                                             <div className="mb-4">
-                                                                <label for="tourPackagesDesc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tour Parkage</label>
+                                                                <label for="tourPackagesDesc" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tour Parkage</label>
                                                                 <Field
                                                                     type="text"
                                                                     placeholder="url here"
@@ -173,7 +173,7 @@ function EditDescripInfo(props) {
                                                                 ) : null}
                                                             </div>
                                                             <div className="mb-4">
-                                                                <label for="frequentlyQuestionDesc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Frequently Question</label>
+                                                                <label for="frequentlyQuestionDesc" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Frequently Question</label>
                                                                 <Field
                                                                     type="text"
                                                                     placeholder="url here"
@@ -188,7 +188,7 @@ function EditDescripInfo(props) {
                                                                 ) : null}
                                                             </div>
                                                             <div className="mb-4">
-                                                                <label for="whyUsDesc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Why Us</label>
+                                                                <label for="whyUsDesc" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Why Us</label>
                                                                 <Field
                                                                     type="text"
                                                                     placeholder="url here"

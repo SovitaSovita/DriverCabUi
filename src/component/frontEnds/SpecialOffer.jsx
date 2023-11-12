@@ -7,11 +7,13 @@ import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../redux/Constants';
 import RowCardSkeleton from '../skeleton/RowCardSkeleton';
 import { useSelector } from 'react-redux';
+import { setListOffer } from '../../redux/slice/ListSlice';
 
 function SpecialOffer() {
 
     const navigate = useNavigate()
     const currentPath = window.location.pathname;
+    const dispatch = useDispatch()
 
     const decrip = useSelector((state) => state.loading.decripInfo)
     const [isLoading, setIsLoading] = useState(false)
@@ -22,6 +24,7 @@ function SpecialOffer() {
         setIsLoading(true)
         get_specialOffer().then((res) => {
             setIsLoading(false)
+            dispatch(setListOffer(res?.data?.payload))
             setData(res?.data?.payload)
         })
     }, [])
@@ -32,45 +35,45 @@ function SpecialOffer() {
 
     return (
         <div>
-            <div class="lg:px-24 md:px-20 phone:px-8 mt-14 p-0" id="specialOffer">
-                <div class="head-content" data-aos="fade-right" data-aos-offset="100" data-aos-easing="ease-in-sine">
-                    <div class="text-4xl text-center pb-2 fw-bold font-merienda">Most Visited</div>
-                    <div class="line"></div>
-                    <p class="text-center text-muted my-3">
+            <div className="lg:px-24 md:px-20 phone:px-8 mt-14 p-0" id="specialOffer">
+                <div className="head-content" data-aos="fade-right" data-aos-offset="100" data-aos-easing="ease-in-sine">
+                    <div className="text-4xl text-center pb-2 fw-bold font-merienda">Most Visited</div>
+                    <div className="line"></div>
+                    <p className="text-center text-muted my-3">
                         { decrip?.mostVisitedDesc }
                     </p>
                 </div>
 
-                <div class="">
-                    <div class="col-lg-12 col-md-12 col-sm-6 col-12 mt-md-5">
+                <div className="">
+                    <div className="col-lg-12 col-md-12 col-sm-6 col-12 mt-md-5">
                         {
                             isLoading ? <RowCardSkeleton />
                                 : (
                                     data?.slice(0, showOffer).map((item, index) => (
-                                        <div class="offer-box grid grid-cols-12 mt-6">
-                                            <div class="xl:col-span-4 lg:col-span-4 md:col-span-3 sm:col-span-12 col-span-12">
-                                                <img src={`${BASE_URL}/images?fileName=${item?.imgList[0]?.fileName}`} alt="special2" class="img-fluid" />
+                                        <div className="offer-box grid grid-cols-12 mt-6">
+                                            <div className="xl:col-span-4 lg:col-span-4 md:col-span-3 sm:col-span-12 col-span-12">
+                                                <img src={`${BASE_URL}/images?fileName=${item?.imgList[0]?.fileName}`} alt="special2" className="img-fluid" />
                                             </div>
-                                            <div class="xl:col-span-5 lg:col-span-5 md:col-span-6 sm:col-span-12 col-span-12 offer-content p-0 bg-white">
-                                                <div class="offer-box-content">
-                                                    <h4 class="mb-3">
+                                            <div className="xl:col-span-5 lg:col-span-5 md:col-span-6 sm:col-span-12 col-span-12 offer-content p-0 bg-white">
+                                                <div className="offer-box-content">
+                                                    <h4 className="mb-3">
                                                         <p className='text-xl line-clamp-2 font-merienda'>{item?.title}</p>
                                                     </h4>
-                                                    <div class="mb-3">
-                                                        <div class="rating lg:px-0"> </div>
-                                                        <div class="offertimings">{item?.duration}</div>
+                                                    <div className="mb-3">
+                                                        <div className="rating lg:px-0"> </div>
+                                                        <div className="offertimings">{item?.duration}</div>
                                                     </div>
-                                                    <span class="posttext post text-gray-500 line-clamp-4">{item?.desciption}</span>
+                                                    <span className="posttext post text-gray-500 line-clamp-3">{item?.imgList[0]?.description}</span>
                                                 </div>
                                             </div>
-                                            <div class="xl:col-span-3 lg:col-span-3 md:col-span-3 sm:col-span-12 col-span-12 offers-details">
-                                                <div class="offer-icons">
+                                            <div className="xl:col-span-3 lg:col-span-3 md:col-span-3 sm:col-span-12 col-span-12 offers-details">
+                                                <div className="offer-icons">
                                                 </div>
-                                                <div class="speoffer">
-                                                    <span class="offer-package">{item?.price}</span>
+                                                <div className="speoffer">
+                                                    <span className="offer-package">{item?.price}</span>
                                                 </div>
-                                                <div class="mt-4 mb-3">
-                                                    <Button onClick={() => handleViewDetail(item?.id)} class="detail-btn rounded-lg">View Details</Button>
+                                                <div className="mt-4 mb-3">
+                                                    <Button onClick={() => handleViewDetail(item?.id)} className="m-auto rounded-lg">View Details</Button>
                                                 </div>
                                             </div>
                                         </div>

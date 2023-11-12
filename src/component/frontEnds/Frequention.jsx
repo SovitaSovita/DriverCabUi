@@ -8,11 +8,11 @@ import { Link } from 'react-router-dom'
 function Frequention() {
     const data = useSelector((state) => state.loading.decripInfo)
     return (
-        <div class=" mt-32">
-            <div class="head-content">
-                <div class="text-4xl text-center pb-5 fw-bold font-merienda">Frequently Question</div>
-                <div class="line"></div>
-                <p class="text-center text-muted my-4">
+        <div className=" mt-32">
+            <div className="head-content">
+                <div className="text-4xl text-center pb-5 fw-bold font-merienda">Frequently Question</div>
+                <div className="line"></div>
+                <p className="text-center text-muted my-4">
                     {data?.frequentlyQuestionDesc} <br />
                     <Link to={'/contact'} className='text-blue-600'>Click Here</Link>
                 </p>

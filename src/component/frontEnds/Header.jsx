@@ -25,28 +25,28 @@ function Header() {
     }, [])
 
     return (
-        <div class="bg-root_dark py-2">
-            <div class="container">
-                <div class="row flex justify-around">
-                    <div class="col-lg-5 col-md-6 col-sm-12 col-12 px-sm-0">
-                        <span class="text-white-smoke"><i class="mr-2 far fa-clock"></i>
+        <div className="bg-root_dark py-2">
+            <div className="container">
+                <div className="row flex justify-around">
+                    <div className="col-lg-5 col-md-6 col-sm-12 col-12 px-sm-0">
+                        <span className="text-white-smoke"><i className="mr-2 far fa-clock"></i>
                             { info?.timeWork }
                         </span>
                     </div>
-                    <div class="col-md-3 d-md-block d-none">
+                    <div className="col-md-3 d-md-block d-none">
                         <span>
-                            <div class="top_social">
-                                <div class="socialbox">
-                                    <a class="facebook" href={data?.fbUrl} target="_blank">
+                            <div className="top_social">
+                                <div className="socialbox">
+                                    <a className="facebook" href={data?.fbUrl} target="_blank">
                                         <FacebookOutlinedIcon />
                                     </a>
-                                    <a class="gplus" href={data?.instaUrl} target="_blank">
+                                    <a className="gplus" href={data?.instaUrl} target="_blank">
                                         <InstagramIcon />
                                     </a>
-                                    <a class="flicker" href={data?.whatAppUrl} target="_blank">
+                                    <a className="flicker" href={data?.whatAppUrl} target="_blank">
                                         <WhatsAppIcon />
                                     </a>
-                                    <a class="flicker" href={data?.teleUrl} target="_blank">
+                                    <a className="flicker" href={data?.teleUrl} target="_blank">
                                         <TelegramIcon />
                                     </a>
                                 </div>

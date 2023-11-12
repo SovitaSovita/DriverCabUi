@@ -44,7 +44,7 @@ function EditTablePopularPop(props) {
                 if (res?.status == 200) {
                     dispatch(setIsGet(true))
                     setIsLoading(false)
-                    notifySuccess("Updated Successfully.")
+                    notifySuccess("Insertd Successfully.")
                     closeModal()
                 }
                 else {

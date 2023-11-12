@@ -23,6 +23,7 @@ import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import PopUpDelete from '../PopUpDelete';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import TableSkeleton from '../skeleton/TableSkeleton';
+import ModalDetail from '../editModal/ModalDetail';
 
 const TableTourType = () => {
 
@@ -100,6 +101,20 @@ const TableTourType = () => {
         setOpenDeleteModal(false);
     };
 
+    //modal detail
+    const [openDetailModal, setOpenDetailModal] = useState(false);
+    const [detailData, setDetailData] = useState(false);
+
+    const handleDetailOpen = (data) => {
+        setDetailData(data)
+        setOpenDetailModal(true);
+    };
+
+    const handleDetailClose = () => {
+        setOpenDetailModal(false);
+    };
+
+
     return (
         <>
             <AlertMesages />
@@ -141,7 +156,7 @@ const TableTourType = () => {
                                                             {row?.title}
                                                         </TableCell>
                                                         <TableCell>
-                                                            {row?.description}
+                                                            <div className='hover:text-blue-600 cursor-pointer' onClick={() => handleDetailOpen(row)}>{row?.description}</div>
                                                         </TableCell>
                                                         <TableCell>
                                                             <img src={`${BASE_URL}/images?fileName=${row?.image}`} alt="Image" className='w-28 h-16 rounded object-cover' />
@@ -172,6 +187,12 @@ const TableTourType = () => {
             }
             <EditTableTypePop isOpen={openEditModal} closeModal={handleEditClose} oldData={getOldData} />
             <PopUpDelete isOpen={openDeleteModal} closeModal={handleDeleteClose} id={id} identify={"tourType"}/>
+
+            <ModalDetail isOpen={openDetailModal} closeModal={handleDetailClose} data={detailData}>
+                <div>
+                    {detailData?.description}
+                </div>
+            </ModalDetail>
         </>
     )
 }

@@ -98,7 +98,7 @@ function EditFooterInfo(props) {
                                                     <div className="grid grid-cols-6 gap-4">
                                                         <div className='col-span-3'>
                                                             <div className="mb-4">
-                                                                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                                                                <label for="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
                                                                 <Field
                                                                     type="email"
                                                                     placeholder="Type here"
@@ -113,7 +113,7 @@ function EditFooterInfo(props) {
                                                                 ) : null}
                                                             </div>
                                                             <div className="mb-4">
-                                                                <label for="phoneNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone Number</label>
+                                                                <label for="phoneNumber" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone Number</label>
                                                                 <Field
                                                                     type="text"
                                                                     placeholder="Type here"
@@ -128,7 +128,7 @@ function EditFooterInfo(props) {
                                                                 ) : null}
                                                             </div>
                                                             <div className="mb-4">
-                                                                <label for="whatAppNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">WhatApp Number</label>
+                                                                <label for="whatAppNumber" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">WhatApp Number</label>
                                                                 <Field
                                                                     type="text"
                                                                     placeholder="url here"
@@ -143,7 +143,7 @@ function EditFooterInfo(props) {
                                                                 ) : null}
                                                             </div>
                                                             <div className="mb-4">
-                                                                <label for="lineNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Line Number</label>
+                                                                <label for="lineNumber" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Line Number</label>
                                                                 <Field
                                                                     type="text"
                                                                     placeholder="Facebook URL"
@@ -160,7 +160,7 @@ function EditFooterInfo(props) {
                                                         </div>
                                                         <div className='col-span-3'>
                                                             <div className="mb-4">
-                                                                <label for="fbUrl" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Facebook URL</label>
+                                                                <label for="fbUrl" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Facebook URL</label>
                                                                 <Field
                                                                     type="text"
                                                                     placeholder="url here"
@@ -175,7 +175,7 @@ function EditFooterInfo(props) {
                                                                 ) : null}
                                                             </div>
                                                             <div className="mb-4">
-                                                                <label for="instaUrl" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Instagram URL</label>
+                                                                <label for="instaUrl" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Instagram URL</label>
                                                                 <Field
                                                                     type="text"
                                                                     placeholder="url here"
@@ -190,7 +190,7 @@ function EditFooterInfo(props) {
                                                                 ) : null}
                                                             </div>
                                                             <div className="mb-4">
-                                                                <label for="teleUrl" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Telegram URL</label>
+                                                                <label for="teleUrl" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Telegram URL</label>
                                                                 <Field
                                                                     type="text"
                                                                     placeholder="url here"
@@ -205,7 +205,7 @@ function EditFooterInfo(props) {
                                                                 ) : null}
                                                             </div>
                                                             <div className="mb-4">
-                                                                <label for="waUrl" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">WhatApp URL</label>
+                                                                <label for="waUrl" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">WhatApp URL</label>
                                                                 <Field
                                                                     type="text"
                                                                     placeholder="Facebook URL"

@@ -11,9 +11,9 @@ function OurService() {
         <div className="mt-32 mb-32">
             <div className="flex phone:flex-col justify-between lg:px-24 md:px-20 phone:px-8">
                 <div className="lg:col-span-2 md:col-span-3">
-                    <div id="TA_selfserveprop935" class="TA_selfservepropv w-36 flex justify-center">
-                        <ul id="5wm6Ir" class="TA_links DZqges7iESt">
-                            <li id="q23cqKt1gPBW" class="K6OAtASt"><a target="_blank" href="https://www.tripadvisor.com/Attraction_Review-g293940-d12293659-Reviews-Cambodia_Cab_Driver-Phnom_Penh.html"><img src="https://www.tripadvisor.com/img/cdsi/img2/branding/v2/Tripadvisor_lockup_horizontal_secondary_registered-11900-2.svg" alt="TripAdvisor" /></a></li>
+                    <div id="TA_selfserveprop935" className="TA_selfservepropv w-36 flex justify-center">
+                        <ul id="5wm6Ir" className="TA_links DZqges7iESt">
+                            <li id="q23cqKt1gPBW" className="K6OAtASt"><a target="_blank" href="https://www.tripadvisor.com/Attraction_Review-g293940-d12293659-Reviews-Cambodia_Cab_Driver-Phnom_Penh.html"><img src="https://www.tripadvisor.com/img/cdsi/img2/branding/v2/Tripadvisor_lockup_horizontal_secondary_registered-11900-2.svg" alt="TripAdvisor" /></a></li>
                         </ul>
                     </div>
                     <script async src="https://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=935&amp;locationId=12293659&amp;lang=en_US&amp;rating=true&amp;nreviews=5&amp;writereviewlink=true&amp;popIdx=true&amp;iswide=false&amp;border=true&amp;display_version=2" data-loadtrk onload="this.loadtrk=true"></script>

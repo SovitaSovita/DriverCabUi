@@ -8,6 +8,7 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
 import SlideshowOutlinedIcon from '@mui/icons-material/SlideshowOutlined';
 import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
+import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
@@ -109,6 +110,18 @@ export default function SideBar() {
                     <span>Slider</span>
                   </li>
                 </Link>
+                <Link to={"/offer"}>
+                  <li
+                    className={
+                      currentPath == "/offer"
+                        ? "flex items-center bg-brand-red hover:bg-red-700 text-white rounded-lg px-4 py-3 mb-1 transition-all"
+                        : "flex items-center rounded-lg px-4 py-3 mb-1 hover:bg-white-smoke transition-all"
+                    }
+                  >
+                    <LocalOfferOutlinedIcon className="mr-2" />
+                    <span>Special offer</span>
+                  </li>
+                </Link>
                 <Link to={"/general"}>
                   <li
                     className={
@@ -121,7 +134,7 @@ export default function SideBar() {
                     <span>General Info</span>
                   </li>
                 </Link>
-                <Link to={"/account"}>
+                {/* <Link to={"/account"}>
                   <li
                     className={
                       currentPath == "/account"
@@ -132,7 +145,7 @@ export default function SideBar() {
                     <PersonOutlineOutlinedIcon className="mr-2" />
                     <span>Account</span>
                   </li>
-                </Link>
+                </Link> */}
               </ul>
             </nav>
             <button

@@ -50,7 +50,7 @@ function SpecialOffer() {
                             isLoading ? <RowCardSkeleton />
                                 : (
                                     data?.slice(0, showOffer).map((item, index) => (
-                                        <div className="offer-box grid grid-cols-12 mt-6">
+                                        <div className="offer-box grid grid-cols-12 mt-6" key={item?.id}>
                                             <div className="xl:col-span-4 lg:col-span-4 md:col-span-3 sm:col-span-12 col-span-12">
                                                 <img src={`${BASE_URL}/images?fileName=${item?.imgList[0]?.fileName}`} alt="special2" className="img-fluid" />
                                             </div>

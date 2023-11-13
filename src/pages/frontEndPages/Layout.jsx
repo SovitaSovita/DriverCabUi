@@ -1,13 +1,13 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Navbar from '../../component/frontEnds/Navbar'
+
 import Footer from '../../component/frontEnds/Footer'
-import Header from '../../component/frontEnds/Header'
+import NavbarComponent from '../../component/frontEnds/Navbar'
 
 export default function FrontEndLayout() {
   return (
     <div>
-      <Navbar />
+      <NavbarComponent />
       <Outlet />
       <Footer />
     </div>

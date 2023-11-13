@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 function SwiperCover() {
     const [data, setData] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
     const navigate = useNavigate()
     useEffect(() => {
         get_slider().then((res) => {

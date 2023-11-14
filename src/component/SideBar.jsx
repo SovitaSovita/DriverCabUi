@@ -134,7 +134,7 @@ export default function SideBar() {
                     <span>General Info</span>
                   </li>
                 </Link>
-                {/* <Link to={"/account"}>
+                <Link to={"/account"}>
                   <li
                     className={
                       currentPath == "/account"
@@ -145,7 +145,7 @@ export default function SideBar() {
                     <PersonOutlineOutlinedIcon className="mr-2" />
                     <span>Account</span>
                   </li>
-                </Link> */}
+                </Link>
               </ul>
             </nav>
             <button

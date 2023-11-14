@@ -15,6 +15,15 @@ export const get_tourType = async () => {
         console.log(e)
     }
 }
+export const getById_tourType = async (id) => {
+    try {
+        const response = await API.get(`/tours/${id}`)
+        return response
+    }
+    catch (e) {
+        console.log(e)
+    }
+}
 export const add_tourType = async (newRow, fileImg) => {
     try {
         const formData = new FormData();

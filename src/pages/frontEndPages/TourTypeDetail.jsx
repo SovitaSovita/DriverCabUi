@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
-import { get_popularById } from '../../redux/service/TableListService';
+import { getById_tourType } from '../../redux/service/tourTypeService';
 import { BASE_URL } from '../../redux/Constants';
 import { Button } from 'flowbite-react';
 
@@ -12,37 +12,38 @@ function TourTypeDetail() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    get_popularById(id).then((res) => {
+    getById_tourType(id).then((res) => {
       setData(res?.data?.payload)
     })
 
   }, [id])
 
-  console.log(data)
-
   return (
     <div className='mt-10 lg:px-24 md:px-20 phone:px-8'>
-      <Button onClick={() => {navigate('/')}} className="bg-root_low mb-3">Back</Button>
-      <div className="flex flex-wrap bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <div className=''>
-          <a href="#">
-            <img className="rounded-t-lg" src={`${BASE_URL}/images?fileName=${data?.imageFile}`} alt="" />
-          </a>
+      <Button onClick={() => { navigate('/') }} className="bg-root_low mb-3">Back</Button>
+
+      <section className="text-gray-600 body-font">
+        <div className="container px-5 py-8 mx-auto flex flex-col">
+          <div className="lg:w-4/6 mx-auto">
+            <div className="rounded-lg h-72 overflow-hidden">
+              <img alt="content" className="object-cover object-center h-full w-full" src={`${BASE_URL}/images?fileName=${data?.image}`} />
+            </div>
+            <div className="flex flex-col sm:flex-row mt-10">
+              <div className="sm:w-1/3 text-center sm:pr-8 sm:py-8">
+                <div className="flex flex-col items-center text-center justify-center">
+                  <h2 className="font-medium title-font mt-4 text-gray-900 text-lg">{data?.title}</h2>
+                  <div className="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+                </div>
+              </div>
+              <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
+                <p className="leading-relaxed text-lg mb-4">
+                  {data?.description}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="p-5">
-          <a href="#">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              {data?.title}
-            </h5>
-          </a>
-          <p className="mb-3 font-normal text-blue-700 dark:text-gray-400">
-            {data?.price}
-          </p>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-            {data?.duration}
-          </p>
-        </div>
-      </div>
+      </section>
 
     </div>
   )

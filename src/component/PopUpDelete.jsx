@@ -14,6 +14,7 @@ export default function PopUpDelete({ isOpen, closeModal, id, identify }) {
     const [isLoading, setIsLoading] = useState(false)
 
     const handleDelete = () => {
+        setIsLoading(true)
         if (identify === "slider") {
             delete_slider(id).then((res) => {
                 setIsLoading(true)

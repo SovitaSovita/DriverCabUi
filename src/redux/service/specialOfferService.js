@@ -15,9 +15,9 @@ export const get_specialOffer = async () => {
         console.log(e)
     }
 }
-export const get_specialOfferById = async () => {
+export const get_specialOfferById = async (id) => {
     try {
-        const response = await API.get(`/specialOffers`)
+        const response = await API.get(`/specialOffer/${id}`)
         return response
     }
     catch (e) {

@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
@@ -8,17 +6,19 @@ import AlertMesages from "./AlertMesages";
 
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import SaveAsOutlinedIcon from '@mui/icons-material/SaveAsOutlined';
-import { Button } from "flowbite-react";
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import { Button, Spinner } from "flowbite-react";
+import { change_password } from "../redux/service/AuthService";
+import { notifyError, notifySuccess } from "../redux/Constants";
 
 export default function ChangePassword() {
   const [password, setPassword] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   const [passwordEye, setPasswordEye] = useState(false);
   const [passwordEye1, setPasswordEye1] = useState(false);
   const [passwordEye2, setPasswordEye2] = useState(false);
-
-  const Loading = useSelector((state) => state.loading.value);
-  const dispatch = useDispatch();
 
   const onChangePassword = (e) => {
     const { name, value } = e.target;
@@ -26,24 +26,28 @@ export default function ChangePassword() {
   };
 
   const onSubmitPassword = () => {
-    // if (password.newPassword == password.confirmPassword) {
-    //   dispatch(setLoading(true));
-    //   resetPassword({ ...password }).then((e) => {
-    //     console.log("mydata", e);
-    //     dispatch(setPopup(""));
-    //     if (e.data?.status == true) {
-    //       notifySuccess("Changed Successfully.")
-    //       dispatch(setLoading(false));
-    //     } else {
-    //       notifyError("Invalid password.")
-    //       dispatch(setLoading(false));
-    //     }
-    //     handleClear()
-    //   });
-    // } else {
-    //   notifyError("Password not match.")
-    //   handleClear()
-    // }
+    setIsLoading(true)
+
+    if (password.newPassword == password.confirmPassword) {
+  
+      change_password({ ...password }).then((e) => {
+        if (e.data?.status == 200) {
+
+          notifySuccess(e?.data?.message)
+
+        } else {
+
+          notifyError(e?.response?.data?.error)
+
+        }
+        handleClear()
+        setIsLoading(false)
+      });
+    } else {
+      notifyError("Password not match.")
+      setIsLoading(false)
+      handleClear()
+    }
   };
 
   const handleClear = () => {
@@ -102,9 +106,9 @@ export default function ChangePassword() {
                       setPasswordEye(!passwordEye);
                     }}
                   >
-                    {/* <FontAwesomeIcon className="text-gray-500"
-                      icon={passwordEye ? faEye : faEyeSlash}
-                    /> */}
+                    {
+                      !passwordEye ? <VisibilityOffOutlinedIcon className="text-gray-500"/> : <VisibilityOutlinedIcon className="text-gray-500"/>
+                    }
                   </span>
                 </div>
                 {errors.currentPassword && touched.currentPassword ? (
@@ -134,9 +138,9 @@ export default function ChangePassword() {
                       setPasswordEye2(!passwordEye2);
                     }}
                   >
-                    {/* <FontAwesomeIcon className="text-gray-500"
-                      icon={passwordEye2 ? faEye : faEyeSlash}
-                    /> */}
+                    {
+                      !passwordEye2 ? <VisibilityOffOutlinedIcon className="text-gray-500"/> : <VisibilityOutlinedIcon className="text-gray-500"/>
+                    }
                   </span>
                 </div>
                 {errors.newPassword && touched.newPassword ? (
@@ -165,9 +169,9 @@ export default function ChangePassword() {
                       setPasswordEye1(!passwordEye1);
                     }}
                   >
-                    {/* <FontAwesomeIcon className="text-gray-500"
-                      icon={passwordEye1 ? faEye : faEyeSlash}
-                    /> */}
+                    {
+                      !passwordEye1 ? <VisibilityOffOutlinedIcon className="text-gray-500"/> : <VisibilityOutlinedIcon className="text-gray-500"/>
+                    }
                   </span>
                 </div>
                 {errors.confirmPassword && touched.confirmPassword ? (
@@ -188,7 +192,7 @@ export default function ChangePassword() {
                 <Button
                   type="button"
                   onClick={onSubmitPassword} variant="contained" endIcon={<SaveAsOutlinedIcon />}>
-                  Save
+                  {isLoading ? <Spinner /> : "Save"}
                 </Button>
               </div>
             </Form>

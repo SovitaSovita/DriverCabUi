@@ -13,6 +13,7 @@ import { Autoplay, Navigation } from 'swiper/modules';
 import { get_popular } from '../../redux/service/TableListService';
 import { BASE_URL } from '../../redux/Constants';
 import ImageSkeleton from '../skeleton/ImageSkeleton';
+import { useNavigate } from 'react-router-dom';
 
 function PopularTours() {
     const info = useSelector((state) => state.loading.decripInfo);
@@ -26,6 +27,13 @@ function PopularTours() {
             setIsLoading(false)
         })
     }, [])
+
+    const navigate = useNavigate();
+
+    const handleParkageDetail = (id) => {
+        navigate(`/parkage/${id}`)
+    }
+
     return (
         <div className="container-fluid mt-32 pt-5 bg-popular-back h-[540px]">
             <div className="lg:px-24 md:px-20 phone:px-8">
@@ -69,7 +77,7 @@ function PopularTours() {
                                 {
                                     data?.map((item) => (
                                         <SwiperSlide key={item?.id}>
-                                            <div className='flex flex-col'>
+                                            <div className='flex flex-col cursor-pointer' onClick={() => handleParkageDetail(item.id)}>
                                                 <div className='w-full h-64'>
                                                     <img src={`${BASE_URL}/images?fileName=${item?.imageFile}`} alt="img" className='w-full h-full' />
                                                 </div>

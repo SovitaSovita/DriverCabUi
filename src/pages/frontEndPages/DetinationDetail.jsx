@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { get_specialOfferById } from '../../redux/service/specialOfferService';
 import { BASE_URL } from '../../redux/Constants';
 
@@ -42,6 +42,8 @@ function DetinationDetail() {
                           <div className="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
                           <p className="text-base">{data?.duration}.</p>
                           <p className="text-base">{data?.price}.</p>
+                          <Link to={'/contact'} className="rounded-lg mt-3 font-merienda border-root_low text-root_low border p-1">
+                            Contact Us </Link>
                         </div>
                       </div>
                     )
@@ -52,6 +54,12 @@ function DetinationDetail() {
                     </p>
                   </div>
                 </div>
+                {
+                  index === 2 && (
+                    <Link to={'/contact'} className="rounded-lg mt-3 font-merienda border-root_low text-root_low border p-1">
+                      Contact Us </Link>
+                  )
+                }
               </div>
             </div>
           </section>

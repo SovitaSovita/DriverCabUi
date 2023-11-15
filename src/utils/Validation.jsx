@@ -25,9 +25,9 @@ export const sliderSchema = Yup.object().shape({
 
 export const footerInfoSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
-  phoneNumber: Yup.string().matches(/^[0-9]+$/, 'Phone number must contain only numbers').required('Required'),
-  whatAppNumber: Yup.string().matches(/^[0-9]+$/, 'What App number must contain only numbers').required('Required'),
-  lineNumber: Yup.string().matches(/^[0-9]+$/, 'Line number must contain only numbers').required('Required'),
+  phoneNumber: Yup.string().required('Required'),
+  whatAppNumber: Yup.string().required('Required'),
+  lineNumber: Yup.string().required('Required'),
   fbUrl: Yup.string().required('Required'),
   instaUrl: Yup.string().required('Required'),
   teleUrl: Yup.string().required('Required'),

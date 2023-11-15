@@ -16,11 +16,12 @@ function Footer() {
 
     const dispatch = useDispatch()
     const [data, setData] = useState({})
-    
+
+
     useEffect(() => {
         get_footer().then((res) => {
             setData(res?.data?.payload)
-            dispatch(setFooterInfo(data))
+            dispatch(setFooterInfo(res?.data?.payload))
         })
     }, [])
 

@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { getById_tourType } from '../../redux/service/tourTypeService';
 import { BASE_URL } from '../../redux/Constants';
 import { Button } from 'flowbite-react';
+import { Link } from 'react-router-dom';
 
 
 function TourTypeDetail() {
@@ -33,6 +34,8 @@ function TourTypeDetail() {
                 <div className="flex flex-col items-center text-center justify-center">
                   <h2 className="font-medium title-font mt-4 text-gray-900 text-lg">{data?.title}</h2>
                   <div className="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+                  <Link to={'/contact'} className="rounded-lg font-merienda border-root_low text-root_low border p-1">
+                    Contact Us </Link>
                 </div>
               </div>
               <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">

@@ -73,7 +73,7 @@ function SpecialOffer() {
                                                     <span className="offer-package">{item?.price}</span>
                                                 </div>
                                                 <div className="mt-4 mb-3">
-                                                    <Button onClick={() => handleViewDetail(item?.id)} className="m-auto rounded-lg">View Details</Button>
+                                                    <Button onClick={() => handleViewDetail(item?.id)} className="m-auto bg-transparent border-white rounded-lg">View Details</Button>
                                                 </div>
                                             </div>
                                         </div>

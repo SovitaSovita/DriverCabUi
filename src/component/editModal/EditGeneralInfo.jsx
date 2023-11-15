@@ -119,7 +119,7 @@ function EditGeneralInfo(props) {
                                                             ) : null}
                                                         </div>
                                                         <div className="mb-4">
-                                                            <label for="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone Number</label>
+                                                            <label for="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">AboutUs Description</label>
                                                             <Field
                                                                 type="text"
                                                                 placeholder="Type here"

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import AddLocationAltOutlinedIcon from '@mui/icons-material/AddLocationAltOutlined';
@@ -7,7 +7,7 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import { TextInput } from 'flowbite-react';
 import emailjs from 'emailjs-com';
-import { notifyError, notifySuccess } from '../../redux/Constants';
+import { useSelector } from 'react-redux';
 
 function ContactPage() {
 
@@ -17,6 +17,15 @@ function ContactPage() {
     const [fromDate, setFromDate] = useState('');
     const [toDate, setToDate] = useState('');
     const [message, setMessage] = useState('');
+
+    const footerInfo = useSelector((state) => state.loading.footerInfo)
+    const generalInfo = useSelector((state) => state.loading.generalInfo)
+
+    const [data, setData] = useState({})
+
+    useEffect(() => {
+        setData(footerInfo, generalInfo)
+    }, [])
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -57,11 +66,11 @@ function ContactPage() {
                             <LocalPhoneOutlinedIcon />
                             <h4 className="uppercase ml-2 text-xl font-bold">Call us</h4>
                         </div>
-                        <p className="text-gray-200 mt-3 leading-loose">
+                        <p className="text-gray-200 mt-3">
                             <ul>
-                                <li>Tel: +855 16 509 371</li>
-                                <li>WhatsApp: +855 16 509 371</li>
-                                <li>Line: +855 16 509 371</li>
+                                <li>Tel: {footerInfo?.phoneNumber}</li>
+                                <li>WhatsApp: {footerInfo?.whatAppNumber}</li>
+                                <li>Line: {footerInfo?.lineNumber}</li>
                             </ul>
                         </p>
 
@@ -69,13 +78,14 @@ function ContactPage() {
                             <LocationOnOutlinedIcon />
                             <h4 className="uppercase ml-2 text-xl font-bold">Location</h4>
                         </div>
-                        <p className="text-gray-200 mt-3">Address : 12, Street 323, Phnom Penh</p>
+                        <p className="text-gray-200 mt-3">
+                            Phnom Penh Road #282, House No_#17,BKK, Chamka Moun, Phnom Penh City, Cambodia</p>
 
                         <div className="flex items-center mt-8">
                             <AccessTimeOutlinedIcon />
                             <h4 className="uppercase ml-2 text-xl font-bold">business hours</h4>
                         </div>
-                        <p className="text-gray-200 mt-3">We are open 24/7</p>
+                        <p className="text-gray-200 mt-3">{generalInfo?.timeWork}</p>
                     </div>
 
                     <div className="right-side phone:mt-3 flex flex-col justify-center bg-white rounded-lg px-3 py-14 h-Rside lg:mt-[-35px] shadow-2xl">

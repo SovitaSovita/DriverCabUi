@@ -22,6 +22,11 @@ import ParkageDetail from './pages/frontEndPages/ParkageDetail';
 import TourTypeDetail from './pages/frontEndPages/TourTypeDetail';
 import GeneralInfoPage from './pages/GeneralInfoPage';
 import SpecialOfferPage from './pages/SpecialOfferPage';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import the AOS styles
+
+// Initialize AOS
+AOS.init();
 
 function App() {
 

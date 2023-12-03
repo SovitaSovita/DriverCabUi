@@ -47,7 +47,7 @@ function PopularTours() {
                             <ImageSkeleton />
                         </div>
                     ) : (
-                        <div className='relative h-full mt-12'>
+                        <div className='relative h-full mt-12' data-aos="zoom-in">
                             <Swiper
                                 // slidesPerView={3}
                                 spaceBetween={10}

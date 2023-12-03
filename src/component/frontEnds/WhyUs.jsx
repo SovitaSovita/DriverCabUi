@@ -5,29 +5,39 @@ import whychooseusicon2 from '../../assets/images/why-choose-us/whychooseusicon2
 import whychooseusicon3 from '../../assets/images/why-choose-us/whychooseusicon3.png'
 import whychooseusicon4 from '../../assets/images/why-choose-us/whychooseusicon4.png'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { Button } from '@mui/material'
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 function WhyUs() {
 
     const data = useSelector((state) => state.loading.decripInfo)
+    const navigator = useNavigate()
 
     return (
         <section className="mt-32">
             <div className="grid grid-cols-12 m-0">
                 <div className="bg_img_div lg:col-span-4 md:col-span-4 col-span-12 px-0">
-                    <section className="" id="why-choose-us">
+                    <section className="" id="why-choose-us" data-aos="fade-right" data-aos-duration="140">
                         <div className=" p-0">
                             <div className="inner_sec">
                                 <div className="section-heading mt-5">
                                     <h3 className='text-4xl mb-3'><span>Why choose Us</span></h3>
                                     <p className="mt-3">
-                                        { data?.whyUsDesc }
+                                        {data?.whyUsDesc}
                                     </p>
                                 </div>
                                 <div className="tour-service-btn mt-6">
                                     <h5 className="tour-service-readmore">
-                                        <Link to={'/contact'} className="rounded-lg font-merienda">
-                                            Contact Us </Link>
+                                        <Button
+                                            onClick={() => navigator('/contact')}
+                                            style={{
+                                                color: 'white',
+                                                borderColor: 'white'
+                                            }}
+                                            className='font-merienda'
+                                            variant="outlined"
+                                            startIcon={<AccountCircleOutlinedIcon />}>Contact Us</Button>
                                     </h5>
                                 </div>
                             </div>
@@ -39,7 +49,7 @@ function WhyUs() {
                         <div className="pr-24 pl-10">
                             <div className="tour_service_inner py-8">
                                 <div className="grid grid-cols-12 gap-4">
-                                    <div className="lg:col-span-6 md:col-span-6 col-span-12 client_inner mb-3">
+                                    <div className="lg:col-span-6 md:col-span-6 col-span-12 client_inner mb-3" data-aos="fade-right" data-aos-duration="100">
                                         <div className="grid grid-cols-12">
                                             <div className="lg:col-span-4 col-span-3">
                                                 <img className="feature-img mt-lg-3 mb-3" src={whychooseusicon1} alt="Image" />
@@ -52,7 +62,7 @@ function WhyUs() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="lg:col-span-6 md:col-span-6 col-span-12 client_inner mb-3">
+                                    <div className="lg:col-span-6 md:col-span-6 col-span-12 client_inner mb-3" data-aos="fade-left" data-aos-duration="110">
                                         <div className="grid grid-cols-12">
                                             <div className="lg:col-span-4 col-span-3">
                                                 <img className="feature-img mt-lg-3 mb-3" src={whychooseusicon2} alt="Image" />
@@ -64,7 +74,7 @@ function WhyUs() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="llg:col-span-6 md:col-span-6 col-span-12 client_inner mb-3">
+                                    <div className="llg:col-span-6 md:col-span-6 col-span-12 client_inner mb-3" data-aos="fade-up" data-aos-duration="120">
                                         <div className="grid grid-cols-12">
                                             <div className="lg:col-span-4 col-span-3">
                                                 <img className="feature-img mt-lg-3 mb-3" src={whychooseusicon3} alt="Image" />
@@ -76,7 +86,7 @@ function WhyUs() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="lg:col-span-6 md:col-span-6 col-span-12 client_inner mb-3">
+                                    <div className="lg:col-span-6 md:col-span-6 col-span-12 client_inner mb-3" data-aos="fade-up" data-aos-duration="130">
                                         <div className="grid grid-cols-12">
                                             <div className="lg:col-span-4 col-span-3">
                                                 <img className="feature-img mt-lg-3 mb-3" src={whychooseusicon4} alt="Image" />

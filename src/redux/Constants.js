@@ -2,8 +2,8 @@ import axios from "axios"
 import { toast } from "react-hot-toast"
 
 //export const BASE_URL = `http://16.170.232.28:8080`
-export const BASE_URL = `http://178.128.52.39:8080/api/v1`
-export const BASE_URL_UnAuth = `http://178.128.52.39:8080`
+export const BASE_URL = `https://sovita.yasokhen.info/api/v1`
+export const BASE_URL_UnAuth = `https://sovita.yasokhen.info`
 
 export const token = localStorage.getItem("token");
 

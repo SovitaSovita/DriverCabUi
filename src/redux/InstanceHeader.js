@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const instance = axios.create({
-    baseURL: 'http://178.128.52.39:8080'
+    baseURL: 'https://sovita.yasokhen.info'
 })
 
 instance.interceptors.request.use(

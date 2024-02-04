@@ -10,7 +10,7 @@ module.exports = {
         'brand-red': '#dd1f2c',
         'red-weight': '#6E1E10',
         'red-light': '#D55126',
-        'brand-black': '#050708',
+        'brand-black': '#0f1d30',
         'smoke-black': '#393940',
         'gray-hover': '#56565a',
         'white-smoke': '#f0f2f5',

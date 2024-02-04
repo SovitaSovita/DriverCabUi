@@ -25,12 +25,12 @@ function Header() {
     }, [])
 
     return (
-        <div className="bg-root_dark py-2">
+        <div className="bg-brand-black py-2">
             <div className="container">
                 <div className="row flex justify-around">
                     <div className="col-lg-5 col-md-6 col-sm-12 col-12 px-sm-0">
                         <span className="text-white-smoke"><i className="mr-2 far fa-clock"></i>
-                            { info?.timeWork }
+                            {info?.timeWork}
                         </span>
                     </div>
                     <div className="col-md-3 d-md-block d-none">

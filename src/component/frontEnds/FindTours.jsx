@@ -19,7 +19,7 @@ function FindTours() {
                     name="tourName"
                     placeholder='Tour name'
                     className='lg:mt-0 mt-2 border border-gray-300 rounded-full placeholder:text-xs' />
-                <select className='border py-2 border-gray-300 rounded-full text-xs text-gray-500 lg:mt-0 mt-2'>
+                <select className='border pl-3 py-2 border-gray-300 rounded-full text-xs text-gray-500 lg:mt-0 mt-2'>
                     <option selected value="tourType" className='text-sm'>Tour Type</option>
                     <option value="popularTour" className='text-sm'>Popular Tour</option>
                 </select>

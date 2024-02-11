@@ -352,7 +352,7 @@ span {
 
 .offers-details {
     border: 1px solid #ddd;
-    background: var(--txtGradient);
+    /* background: var(--txtGradient); */
     padding: 45px 10px;
     text-align: center;
 }

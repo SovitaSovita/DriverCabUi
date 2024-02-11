@@ -40,7 +40,7 @@ function SpecialOffer() {
                     <div className="text-4xl text-center pb-2 fw-bold font-merienda">Most Visited</div>
                     <div className="line"></div>
                     <p className="text-center text-muted my-3">
-                        { decrip?.mostVisitedDesc }
+                        {decrip?.mostVisitedDesc}
                     </p>
                 </div>
 
@@ -66,14 +66,14 @@ function SpecialOffer() {
                                                     <span className="posttext post text-gray-500 line-clamp-3">{item?.imgList[0]?.description}</span>
                                                 </div>
                                             </div>
-                                            <div className="xl:col-span-3 lg:col-span-3 md:col-span-3 sm:col-span-12 col-span-12 offers-details">
+                                            <div className="xl:col-span-3 lg:col-span-3 md:col-span-3 sm:col-span-12 col-span-12 offers-details bg-root_high">
                                                 <div className="offer-icons">
                                                 </div>
                                                 <div className="speoffer">
                                                     <span className="offer-package">{item?.price}</span>
                                                 </div>
                                                 <div className="mt-4 mb-3">
-                                                    <Button onClick={() => handleViewDetail(item?.id)} className="m-auto bg-transparent border-white rounded-lg">View Details</Button>
+                                                    <button onClick={() => handleViewDetail(item?.id)} className="m-auto py-2 px-4 bg-transparent text-white border border-white rounded-full">View Details</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -81,7 +81,13 @@ function SpecialOffer() {
                                 )
                         }
                     </div>
-                    {currentPath == "/" && <Button onClick={() => navigate('/destination')} className="m-auto mt-5 bg-root_low">Show more</Button>}
+                    {currentPath == "/" &&
+                        <Button
+                            onClick={() => navigate('/destination')}
+                            className="m-auto mt-5 py-1 px-4 bg-transparent text-black border border-black rounded-full hover:text-white">
+                            Show more
+                        </Button>
+                    }
                 </div>
             </div>
         </div>

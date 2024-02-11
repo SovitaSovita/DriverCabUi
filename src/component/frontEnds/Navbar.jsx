@@ -64,7 +64,7 @@ function NavbarComponent() {
                 <Navbar.Collapse className={`${isBurgerOpen} m-auto`}>
                     <ul className="font-medium bg-brand-black md:bg-transparent md:h-auto h-screen text-white flex flex-col p-4 md:p-0 px-24 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
                         {/* Left section */}
-                        <div className="flex items-center md:flex-row md:space-x-8">
+                        <div className="md:flex items-center md:flex-row md:space-x-6">
                             <li>
                                 <Link
                                     to="/"
@@ -75,11 +75,12 @@ function NavbarComponent() {
                                     aria-current="page"
                                 >
                                     <div className='flex flex-col items-center'>
-                                        <CottageIcon />
+                                        {/* <CottageIcon /> */}
                                         <span className='font-merienda'>Home</span>
                                     </div>
                                 </Link>
                             </li>
+                            <li className='md:block hidden'>/</li>
                             <li>
                                 <Link
                                     to="/destination"
@@ -89,11 +90,12 @@ function NavbarComponent() {
                                         : 'block py-2 pl-3 pr-4 hover:text-root_high rounded md:bg-transparent md:p-0 transition-all'}
                                 >
                                     <div className='flex flex-col items-center'>
-                                        <FlightTakeoffOutlinedIcon />
+                                        {/* <FlightTakeoffOutlinedIcon /> */}
                                         <span className='font-merienda'>Destination</span>
                                     </div>
                                 </Link>
                             </li>
+                            <li className='md:block hidden'>/</li>
                             <li>
                                 <Link
                                     to="/type"
@@ -103,7 +105,7 @@ function NavbarComponent() {
                                         : 'block py-2 pl-3 pr-4 hover:text-root_high rounded md:bg-transparent md:p-0 transition-all'}
                                 >
                                     <div className='flex flex-col items-center'>
-                                        <TourIcon />
+                                        {/* <TourIcon /> */}
                                         <span className='font-merienda'>Tours</span>
                                     </div>
                                 </Link>
@@ -112,22 +114,23 @@ function NavbarComponent() {
 
                         {/* Centered Logo */}
                         <Navbar.Brand as={Link}>
-                            <Link to={'/'} className="flex items-center" onClick={() => handleLinkClick('fromLi')}>
+                            <Link to={'/'} className="hidden md:block md:mx-6" onClick={() => handleLinkClick('fromLi')}>
                                 <img src={logo} className="h-12" alt="Logo" />
                             </Link>
                         </Navbar.Brand>
 
                         {/* Right section */}
-                        <div className="flex items-center md:flex-row md:space-x-8">
+                        <div className="md:flex items-center md:flex-row md:space-x-6">
                             <li>
                                 <a href={footerInfo?.fbUrl} target='_blank'
                                     className='block py-2 pl-3 pr-4 hover:text-root_low rounded md:bg-transparent md:p-0 transition-all'>
                                     <div className='flex flex-col items-center'>
-                                        <FacebookOutlinedIcon />
+                                        {/* <FacebookOutlinedIcon /> */}
                                         <span className='font-merienda'>Facebook</span>
                                     </div>
                                 </a>
                             </li>
+                            <li className='md:block hidden'>/</li>
                             <li>
                                 <Link to="/contact"
                                     onClick={() => handleLinkClick('fromLi')}
@@ -136,11 +139,12 @@ function NavbarComponent() {
                                         : 'block py-2 pl-3 pr-4 hover:text-root_high rounded md:bg-transparent md:p-0 transition-all'}
                                 >
                                     <div className='flex flex-col items-center'>
-                                        <PermContactCalendarIcon />
+                                        {/* <PermContactCalendarIcon /> */}
                                         <span className='font-merienda'>Contact</span>
                                     </div>
                                 </Link>
                             </li>
+                            <li className='md:block hidden'>/</li>
                             <li>
                                 <Link to="/about"
                                     onClick={() => handleLinkClick('fromLi')}
@@ -149,7 +153,7 @@ function NavbarComponent() {
                                         : 'block py-2 pl-3 pr-4 hover:text-root_high rounded md:bg-transparent md:p-0 transition-all'}
                                 >
                                     <div className='flex flex-col items-center'>
-                                        <InfoIcon />
+                                        {/* <InfoIcon /> */}
                                         <span className='font-merienda'>About Us</span>
                                     </div>
                                 </Link>
@@ -164,3 +168,12 @@ function NavbarComponent() {
 }
 
 export default NavbarComponent
+
+
+
+
+
+
+
+
+

@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import { get_generalinfo } from '../../redux/service/generalInfoService';
 import { useDispatch } from 'react-redux';
 import { setGeneralInfo, setLoading } from '../../redux/slice/LoadingSlice';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 function Header() {
 
@@ -29,7 +30,8 @@ function Header() {
             <div className="container">
                 <div className="row flex justify-around">
                     <div className="col-lg-5 col-md-6 col-sm-12 col-12 px-sm-0">
-                        <span className="text-white-smoke"><i className="mr-2 far fa-clock"></i>
+                        <span className="text-gray-400 text-sm">
+                            <AccessTimeIcon className="mr-2" fontSize="small" />
                             {info?.timeWork}
                         </span>
                     </div>

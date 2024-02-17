@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { footerInfoSchema } from '../utils/Validation'
 
 import SaveAsOutlinedIcon from '@mui/icons-material/SaveAsOutlined';
-import { Button, Spinner, Table } from 'flowbite-react';
+import { Spinner, Table } from 'flowbite-react';
+import { Button } from '@mui/material';
 import { get_desciptionInfo, get_footer, get_generalinfo } from '../redux/service/generalInfoService';
 import { useSelector } from 'react-redux';
 import EditFooterInfo from './editModal/EditFooterInfo';
@@ -84,7 +85,7 @@ function FooterInfoForm() {
 
                 <div className='flex justify-between items-center mt-12'>
                     <div className='font-semibold'>Edit Contact</div>
-                    <Button onClick={handleEditOpen} className="bg-root_low ml-auto mb-4">Update Information</Button>
+                    <Button variant="contained" onClick={handleEditOpen} sx={{ mb: 2 }}>Update Information</Button>
                 </div>
                 <Table striped>
                     <Table.Head>
@@ -96,7 +97,7 @@ function FooterInfoForm() {
                     <Table.Body className="divide-y">
                         {
                             isLoading ? (
-                                    <TextSkeleton />
+                                <TextSkeleton />
                             ) : (
                                 <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                                     <Table.Cell>{footerInfo?.email}</Table.Cell>
@@ -130,9 +131,9 @@ function FooterInfoForm() {
                     </Table.Body>
                 </Table>
 
-                <div className='flex justify-between items-center mt-12'>
+                <div className='flex justify-between items-center mt-16'>
                     <div className='font-semibold'>Edit Description</div>
-                    <Button className="bg-root_low" onClick={handleEditOpenDesc}>Update Information</Button>
+                    <Button variant="contained" onClick={handleEditOpenDesc}>Update Information</Button>
                 </div>
 
                 <Table striped className='mt-6 mb-12'>
@@ -177,7 +178,7 @@ function FooterInfoForm() {
 
                 <div className='flex justify-between items-center mt-12'>
                     <div className='font-semibold'>Edit Description</div>
-                    <Button className="bg-root_low" onClick={handleEditOpenGene}>Update Information</Button>
+                    <Button variant="contained" onClick={handleEditOpenGene}>Update Information</Button>
                 </div>
 
                 {/* GeneralInfo endPoint */}
@@ -202,7 +203,7 @@ function FooterInfoForm() {
             </div>
             <EditFooterInfo isOpen={openEditModal} closeModal={handleEditClose} data={footerInfo} />
             <EditDescripInfo isOpen={openEditModalDesc} closeModal={handleEditCloseDesc} data={decripInfo} />
-            <EditGeneralInfo isOpen={openEditModalGene} closeModal={handleEditCloseGene} data={generalInfo}/>
+            <EditGeneralInfo isOpen={openEditModalGene} closeModal={handleEditCloseGene} data={generalInfo} />
         </div>
     )
 }

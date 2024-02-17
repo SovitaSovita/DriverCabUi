@@ -1,9 +1,5 @@
-import React, { useEffect, useState } from 'react'
 import Navbar from '../component/Navbar'
 import FooterInfoForm from '../component/FooterInfoForm'
-import { get_footer } from '../redux/service/generalInfoService'
-import { useDispatch } from 'react-redux'
-import { setFooterInfo } from '../redux/slice/LoadingSlice'
 
 function GeneralInfoPage() {
 

@@ -8,7 +8,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import { Table } from '@mui/material';
+import { Button, Table } from '@mui/material';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import PopUpDelete from '../PopUpDelete';
@@ -16,7 +16,6 @@ import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOu
 
 import { BASE_URL, notifyError, notifySuccess } from '../../redux/Constants';
 import AlertMesages from '../AlertMesages';
-import { Button, Spinner } from 'flowbite-react';
 import { useDispatch } from 'react-redux';
 import { setIsGet, setListSlide } from '../../redux/slice/ListSlice';
 import { useSelector } from 'react-redux';
@@ -110,7 +109,7 @@ const TableSlider = () => {
                     <TableSkeleton />
                 ) : (
                     <div>
-                        <Button onClick={() => handleEditOpen(null)} className='bg-root_low mb-4 ml-auto'>
+                        <Button onClick={() => handleEditOpen(null)} variant='contained' sx={{ mb: 2 }}>
                             <AddCircleOutlineOutlinedIcon />
                         </Button>
                         <Paper sx={{ width: '100%', overflow: 'hidden' }}>
@@ -169,7 +168,7 @@ const TableSlider = () => {
                 )
             }
             <EditTableSliderPop isOpen={openEditModal} closeModal={handleEditClose} oldData={getOldData} />
-            <PopUpDelete isOpen={openDeleteModal} closeModal={handleDeleteClose} id={id} identify={"slider"}/>
+            <PopUpDelete isOpen={openDeleteModal} closeModal={handleDeleteClose} id={id} identify={"slider"} />
         </>
     )
 }

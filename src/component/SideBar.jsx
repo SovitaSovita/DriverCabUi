@@ -66,7 +66,7 @@ export default function SideBar() {
                   <li
                     className={
                       currentPath == "/dashboard"
-                        ? "flex items-center bg-brand-red hover:bg-red-700 text-white rounded-lg px-4 py-3 mb-1 transition-all"
+                        ? "flex items-center bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4 py-3 mb-1 transition-all"
                         : "flex items-center rounded-lg px-4 py-3 mb-1 hover:bg-white-smoke transition-all"
                     }
                   >
@@ -78,7 +78,7 @@ export default function SideBar() {
                   <li
                     className={
                       currentPath == "/popular"
-                        ? "flex items-center bg-brand-red hover:bg-red-700 text-white rounded-lg px-4 py-3 mb-1 transition-all"
+                        ? "flex items-center bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4 py-3 mb-1 transition-all"
                         : "flex items-center rounded-lg px-4 py-3 mb-1 hover:bg-white-smoke transition-all"
                     }
                   >
@@ -90,7 +90,7 @@ export default function SideBar() {
                   <li
                     className={
                       currentPath == "/tourtype"
-                        ? "flex items-center bg-brand-red hover:bg-red-700 text-white rounded-lg px-4 py-3 mb-1 transition-all"
+                        ? "flex items-center bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4 py-3 mb-1 transition-all"
                         : "flex items-center rounded-lg px-4 py-3 mb-1 hover:bg-white-smoke transition-all"
                     }
                   >
@@ -102,7 +102,7 @@ export default function SideBar() {
                   <li
                     className={
                       currentPath == "/slider"
-                        ? "flex items-center bg-brand-red hover:bg-red-700 text-white rounded-lg px-4 py-3 mb-1 transition-all"
+                        ? "flex items-center bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4 py-3 mb-1 transition-all"
                         : "flex items-center rounded-lg px-4 py-3 mb-1 hover:bg-white-smoke transition-all"
                     }
                   >
@@ -114,7 +114,7 @@ export default function SideBar() {
                   <li
                     className={
                       currentPath == "/offer"
-                        ? "flex items-center bg-brand-red hover:bg-red-700 text-white rounded-lg px-4 py-3 mb-1 transition-all"
+                        ? "flex items-center bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4 py-3 mb-1 transition-all"
                         : "flex items-center rounded-lg px-4 py-3 mb-1 hover:bg-white-smoke transition-all"
                     }
                   >
@@ -126,7 +126,7 @@ export default function SideBar() {
                   <li
                     className={
                       currentPath == "/general"
-                        ? "flex items-center bg-brand-red hover:bg-red-700 text-white rounded-lg px-4 py-3 mb-1 transition-all"
+                        ? "flex items-center bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4 py-3 mb-1 transition-all"
                         : "flex items-center rounded-lg px-4 py-3 mb-1 hover:bg-white-smoke transition-all"
                     }
                   >
@@ -138,7 +138,7 @@ export default function SideBar() {
                   <li
                     className={
                       currentPath == "/account"
-                        ? "flex items-center bg-brand-red hover:bg-red-700 text-white rounded-lg px-4 py-3 mb-1 transition-all"
+                        ? "flex items-center bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4 py-3 mb-1 transition-all"
                         : "flex items-center rounded-lg px-4 py-3 mb-1 hover:bg-white-smoke transition-all"
                     }
                   >

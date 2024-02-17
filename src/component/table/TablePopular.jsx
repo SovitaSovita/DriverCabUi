@@ -8,7 +8,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import { Table } from '@mui/material';
+import { Button, Table } from '@mui/material';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import PopUpDelete from '../PopUpDelete';
@@ -17,7 +17,6 @@ import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOu
 import { add_popular, delete_popular, get_popular, update_popular } from '../../redux/service/TableListService';
 import { BASE_URL, notifyError, notifySuccess } from '../../redux/Constants';
 import AlertMesages from '../AlertMesages';
-import { Button, Spinner } from 'flowbite-react';
 import { useDispatch } from 'react-redux';
 import { setIsGet, setListPopular } from '../../redux/slice/ListSlice';
 import { useSelector } from 'react-redux';
@@ -113,7 +112,7 @@ const TablePopular = () => {
                 ) : (
 
                     <div>
-                        <Button onClick={() => handleEditOpen(null)} className='bg-root_low mb-4 ml-auto'>
+                        <Button variant='contained' sx={{ mb: 2 }} onClick={() => handleEditOpen(null)}>
                             <AddCircleOutlineOutlinedIcon />
                         </Button>
                         <Paper sx={{ width: '100%', overflow: 'hidden' }}>
@@ -178,7 +177,7 @@ const TablePopular = () => {
                 )
             }
             <EditTablePopularPop isOpen={openEditModal} closeModal={handleEditClose} oldData={getOldData} />
-            <PopUpDelete isOpen={openDeleteModal} closeModal={handleDeleteClose} id={id} identify={"popular"}/>
+            <PopUpDelete isOpen={openDeleteModal} closeModal={handleDeleteClose} id={id} identify={"popular"} />
         </>
     )
 }

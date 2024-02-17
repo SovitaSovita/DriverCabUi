@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'brand-red': '#dd1f2c',
+        'brand-red': '#00b4db', //blue (same as => root_low)
         'red-weight': '#6E1E10',
         'red-light': '#D55126',
         'brand-black': '#0f1d30',

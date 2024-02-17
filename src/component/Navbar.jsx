@@ -1,4 +1,4 @@
-import { Button } from 'flowbite-react'
+import { Button } from '@mui/material'
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
@@ -17,7 +17,7 @@ export default function Navbar() {
                 <div className='flex items-center'>
                     {/* btn goto frontEnd */}
                     <Link to={'/'}>
-                        <Button className='btn btn-outline btn-primary btn-sm px-4'>View Site</Button>
+                        <Button variant="outlined">View Site</Button>
                     </Link>
                 </div>
             </div>

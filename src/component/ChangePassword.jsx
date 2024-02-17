@@ -8,9 +8,10 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import SaveAsOutlinedIcon from '@mui/icons-material/SaveAsOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
-import { Button, Spinner } from "flowbite-react";
 import { change_password } from "../redux/service/AuthService";
 import { notifyError, notifySuccess } from "../redux/Constants";
+import { Spinner } from "flowbite-react";
+import { Button } from "@mui/material";
 
 export default function ChangePassword() {
   const [password, setPassword] = useState({});
@@ -29,7 +30,7 @@ export default function ChangePassword() {
     setIsLoading(true)
 
     if (password.newPassword == password.confirmPassword) {
-  
+
       change_password({ ...password }).then((e) => {
         if (e.data?.status == 200) {
 
@@ -107,7 +108,7 @@ export default function ChangePassword() {
                     }}
                   >
                     {
-                      !passwordEye ? <VisibilityOffOutlinedIcon className="text-gray-500"/> : <VisibilityOutlinedIcon className="text-gray-500"/>
+                      !passwordEye ? <VisibilityOffOutlinedIcon className="text-gray-500" /> : <VisibilityOutlinedIcon className="text-gray-500" />
                     }
                   </span>
                 </div>
@@ -139,7 +140,7 @@ export default function ChangePassword() {
                     }}
                   >
                     {
-                      !passwordEye2 ? <VisibilityOffOutlinedIcon className="text-gray-500"/> : <VisibilityOutlinedIcon className="text-gray-500"/>
+                      !passwordEye2 ? <VisibilityOffOutlinedIcon className="text-gray-500" /> : <VisibilityOutlinedIcon className="text-gray-500" />
                     }
                   </span>
                 </div>
@@ -170,7 +171,7 @@ export default function ChangePassword() {
                     }}
                   >
                     {
-                      !passwordEye1 ? <VisibilityOffOutlinedIcon className="text-gray-500"/> : <VisibilityOutlinedIcon className="text-gray-500"/>
+                      !passwordEye1 ? <VisibilityOffOutlinedIcon className="text-gray-500" /> : <VisibilityOutlinedIcon className="text-gray-500" />
                     }
                   </span>
                 </div>

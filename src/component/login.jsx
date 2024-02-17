@@ -14,6 +14,7 @@ import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { loginAuth } from "../redux/slice/AuthSlice";
+import { Button } from "@mui/material";
 
 
 
@@ -132,12 +133,13 @@ export default function Login() {
                     {/* Forgot password? */}
                   </a>
 
-                  <button
+                  <Button
                     type="submit"
+                    variant="contained"
                     className="w-full font-roboto px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-root_high rounded-md hover:bg-root_low focus:outline-none focus:bg-root_low"
                   >
                     {Loading ? <Spinner /> : "Sign in"}
-                  </button>
+                  </Button>
                 </Form>
 
                 <div className="flex justify-center items-center">

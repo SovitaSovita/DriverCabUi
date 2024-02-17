@@ -84,13 +84,13 @@ function FindTours() {
                     <option value={false} className='text-sm'>Popular Tour</option>
                 </select>
                 <input
-                    type="text"
+                    type="number"
                     name="minPrice"
                     placeholder='Min Price'
                     onChange={handleOnChange}
                     className='lg:mt-0 mt-2 border border-gray-300 rounded-full placeholder:text-xs' />
                 <input
-                    type="text"
+                    type="number"
                     name="maxPrice"
                     placeholder='Max Price'
                     onChange={handleOnChange}

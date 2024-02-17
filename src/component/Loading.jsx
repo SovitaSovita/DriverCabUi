@@ -1,9 +1,7 @@
 import React from 'react'
-
-export default function Loading() {
+import '../style/h-loading.css'
+export default function HLoading() {
     return (
-        <div className='flex justify-center items-center'>
-            <span className="loading loading-dots loading-lg"></span>
-        </div>
+        <div className="lds-ripple"><div></div><div></div></div>
     )
 }

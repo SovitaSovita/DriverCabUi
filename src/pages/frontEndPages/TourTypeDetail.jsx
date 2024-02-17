@@ -21,7 +21,7 @@ function TourTypeDetail() {
 
   return (
     <div className='mt-10 lg:px-24 md:px-20 phone:px-8'>
-      <Button onClick={() => { navigate('/') }} className="bg-root_low mb-3">Back</Button>
+      <Button onClick={() => { navigate(-1) }} className="bg-root_low mb-3">Back</Button>
 
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-8 mx-auto flex flex-col">

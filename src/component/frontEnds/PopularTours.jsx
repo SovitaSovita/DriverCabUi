@@ -75,7 +75,7 @@ function PopularTours() {
                                 className="mySwiper"
                             >
                                 {
-                                    data?.map((item) => (
+                                    data?.slice(data?.length / 2, data?.length).map((item) => (
                                         <SwiperSlide key={item?.id}>
                                             <div className='flex flex-col cursor-pointer' onClick={() => handleParkageDetail(item.id)}>
                                                 <div className='w-full h-64'>

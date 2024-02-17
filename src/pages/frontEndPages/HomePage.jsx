@@ -11,6 +11,7 @@ import WhyUs from '../../component/frontEnds/WhyUs';
 import { get_desciptionInfo } from '../../redux/service/generalInfoService';
 import { useDispatch } from 'react-redux';
 import { setDescripInfo } from '../../redux/slice/LoadingSlice';
+import TourTypeSection from '../../component/frontEnds/TourTypeSection';
 
 export default function FontEndPage() {
 
@@ -27,6 +28,7 @@ export default function FontEndPage() {
       <PopularTours />
       <OurService />
       <SpecialOffer />
+      <TourTypeSection />
       <Parkages />
       <Frequention />
       <WhyUs />

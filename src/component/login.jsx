@@ -79,7 +79,7 @@ export default function Login() {
                       Email
                     </span>
                     <div className="flex items-center bg-white-smoke rounded py-1 px-3">
-                      <EmailOutlinedIcon className="text-gray-500"/>
+                      <EmailOutlinedIcon className="text-gray-500" />
                       <Field
                         placeholder="Admin"
                         name="email"
@@ -100,7 +100,7 @@ export default function Login() {
                       Password
                     </span>
                     <div className="flex items-center bg-white-smoke rounded py-1 px-3">
-                      <LockOutlinedIcon className="text-gray-500"/>
+                      <LockOutlinedIcon className="text-gray-500" />
                       <Field
                         type={passwordEye ? "text" : "password"}
                         placeholder="Password"

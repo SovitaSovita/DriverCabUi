@@ -44,7 +44,7 @@ function SpecialOffer() {
                     </p>
                 </div>
 
-                <div className="">
+                <div className="flex flex-col">
                     <div className="col-lg-12 col-md-12 col-sm-6 col-12 mt-md-5">
                         {
                             isLoading ? <RowCardSkeleton />
@@ -82,11 +82,11 @@ function SpecialOffer() {
                         }
                     </div>
                     {currentPath == "/" &&
-                        <Button
+                        <button
                             onClick={() => navigate('/destination')}
-                            className="m-auto mt-5 py-1 px-4 bg-transparent text-black border border-black rounded-full hover:text-white">
+                            className="m-auto mt-4 lg:mt-6 py-2.5 px-6 bg-transparent text-black border border-black rounded-full hover:border-black-low hover:text-black-low">
                             Show more
-                        </Button>
+                        </button>
                     }
                 </div>
             </div>

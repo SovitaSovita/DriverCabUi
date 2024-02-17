@@ -21,29 +21,22 @@ function ParkageDetail() {
 
   return (
     <div className='mt-10 lg:px-24 md:px-20 phone:px-8'>
-      <Button onClick={() => { navigate('/') }} className="bg-root_low mb-3">Back</Button>
-      <div className="flex flex-wrap bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <div className="p-5">
-          <a href="#">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              {data?.title}
-            </h5>
-          </a>
-          <p className="mb-3 font-normal text-blue-700 dark:text-gray-400">
-            {data?.price}
-          </p>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-            {data?.duration}
-          </p>
-
-          <Link to={'/contact'} className="rounded-lg mt-3 font-merienda border-root_low text-root_low border p-1">
-            Contact Us </Link>
-
+      <section className="text-gray-600 body-font bg-white rounded-lg shadow-sm">
+        <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+          <img className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src={`${BASE_URL}/images?fileName=${data?.imageFile}`} />
+          <div className="text-center lg:w-2/3 w-full">
+            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">{data?.title}</h1>
+            <h1 className="title-font sm:text-2xl text-xl mb-4 font-medium text-root_low">{data?.price} / <span className='text-zinc-500'>{data?.duration}</span></h1>
+            <p className="mb-8 leading-relaxed">Explore the beauty of diverse destinations with our exclusive tours. Whether you're drawn to the bustling streets of vibrant cities, the tranquility of scenic landscapes, or the rich cultural heritage of historical sites, our tours cater to every wanderlust. Immerse yourself in unique experiences and create lasting memories as you embark on a journey tailored to your desired destination.</p>
+            <div className="flex justify-evenly">
+              <Link onClick={() => { navigate(-1) }} className="px-4 py-1 rounded-lg mt-3 font-merienda bg-root_low text-white hover:text-white-smoke border">Back</Link>
+              <Link to={'/contact'} className="px-4 py-1 rounded-lg mt-3 font-merienda border-root_low text-root_low border">
+                Contact Us
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className=''>
-          <img className="rounded-b-lg" src={`${BASE_URL}/images?fileName=${data?.imageFile}`} alt="" />
-        </div>
-      </div>
+      </section>
 
     </div>
   )

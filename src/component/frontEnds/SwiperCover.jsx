@@ -19,7 +19,7 @@ function SwiperCover() {
             <Carousel className='h-screen'>
                 {
                     data?.map((item, index) => (
-                        <div className="flex h-full items-center justify-center bg-gray-400">
+                        <div key={index} className="flex h-full items-center justify-center bg-gray-400">
                             <img src={`${BASE_URL}/images?fileName=${item?.image}`} alt="Image" className="w-full h-full object-cover brightness-50" />
                             <div className="absolute flex flex-col items-center justify-center lg:px-0 md:px-12 phone:px-8">
                                 <div className='lg:text-4xl md:text-3xl phone:text-2xl text-white font-merienda'>Cambodia Cab Driver</div>

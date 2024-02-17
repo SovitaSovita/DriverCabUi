@@ -24,6 +24,17 @@ export const getById_tourType = async (id) => {
         console.log(e)
     }
 }
+export const getSearch_tourType = async (req) => {
+    console.log(req)
+    try {
+
+        const response = await API.get(`/tours/search?title=${req.title}&isSelect=${req?.isSelect === "true" ? true : false}&minPrice=${req.minPrice}&maxPrice=${req.maxPrice}`)
+        return response
+    }
+    catch (e) {
+        return e?.response?.data;
+    }
+}
 export const add_tourType = async (newRow, fileImg) => {
     try {
         const formData = new FormData();

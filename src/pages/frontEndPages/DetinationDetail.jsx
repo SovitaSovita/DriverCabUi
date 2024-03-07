@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { get_specialOfferById } from '../../redux/service/specialOfferService';
 import { BASE_URL } from '../../redux/Constants';
 
@@ -22,6 +22,7 @@ function DetinationDetail() {
   const dataDetail = data.imgList?.map((item) => { return item })
 
   // Use the `id` parameter in your component logic
+  const navigate = useNavigate()
 
   return (
     <div className='mt-8'>
@@ -30,7 +31,12 @@ function DetinationDetail() {
           <section key={item?.id} className="text-gray-600 body-font">
             <div className="container px-5 py-8 mx-auto flex flex-col">
               <div className="lg:w-4/6 mx-auto">
-                <div className="rounded-lg h-72 overflow-hidden">
+                {
+                  index < 1 && (
+                    <Link onClick={() => { navigate(-1) }} className="px-4 py-1 rounded-lg mt-3 font-merienda bg-root_low text-white hover:text-white-smoke border">Back</Link>
+                  )
+                }
+                <div className="rounded-lg h-72 overflow-hidden mt-6">
                   <img alt="content" className="object-cover object-center h-full w-full" src={`${BASE_URL}/images?fileName=${item?.fileName}`} />
                 </div>
                 <div className="flex flex-col sm:flex-row mt-10">

@@ -87,7 +87,7 @@ function PopularTours() {
                                                     </div>
                                                     <div className='flex justify-between items-center text-gray-500 mt-2'>
                                                         <p className='line-clamp-1 text-sm font-merienda'>{item?.duration}</p>
-                                                        <p className='line-clamp-1 text-root_low font-bold font-merienda'>{item?.price}</p>
+                                                        <p className='line-clamp-1 text-root_low font-bold font-merienda'>{item?.price}$</p>
                                                     </div>
                                                 </div>
                                             </div>

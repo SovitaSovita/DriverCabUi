@@ -56,7 +56,7 @@ function Parkages() {
                                                                             {item?.duration}</p>
                                                                     </div>
                                                                 </div>
-                                                                <div className="text-primary fs-5 font-merienda"> {item?.price}</div>
+                                                                <div className="text-primary fs-5 font-merienda"> {item?.price}$</div>
                                                             </div>
                                                         </div>
                                                     </div>

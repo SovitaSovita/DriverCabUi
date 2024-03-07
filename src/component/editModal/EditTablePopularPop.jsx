@@ -179,7 +179,7 @@ function EditTablePopularPop(props) {
                                                         <div className="flex items-center bg-white-smoke rounded py-1 px-3">
                                                             <LockOutlinedIcon className="text-gray-500" />
                                                             <Field
-                                                                type="number"
+                                                                type="text"
                                                                 placeholder="enter price as dolla"
                                                                 name="price"
                                                                 id="price"

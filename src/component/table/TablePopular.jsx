@@ -147,7 +147,7 @@ const TablePopular = () => {
                                                             {row?.duration}
                                                         </TableCell>
                                                         <TableCell>
-                                                            {row?.price}
+                                                            {row?.price}$
                                                         </TableCell>
                                                         <TableCell>
                                                             <img src={`${BASE_URL}/images?fileName=${row?.imageFile}`} alt="Image" className='w-28 h-16 rounded object-cover' />

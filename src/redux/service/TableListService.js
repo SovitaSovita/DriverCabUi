@@ -49,7 +49,7 @@ export const update_popular = async (updateRow, fileImg, id) => {
         formData.append('id', id);
         formData.append('title', updateRow.title);
         formData.append('duration', updateRow.duration);
-        formData.append('price', updateRow.price + '$');
+        formData.append('price', updateRow.price);
 
         const response = await API_HEADER.put(`/updatepopulartours`, formData, config)
         return response

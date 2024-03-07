@@ -126,7 +126,7 @@ function FindTours() {
                                 <div className="categorybox-content text-center">
                                     <a href=""><h4 className="categorytitle line-clamp-2 px-14">{item?.duration ? item?.duration : item?.title}</h4></a>
                                     <p className="categorypara">
-                                        {item?.price ? item?.price : ""}
+                                        {item?.price ? item?.price + "$" : ""}
                                     </p>
                                     <p className="categorypara  px-5 line-clamp-6">
                                         {item?.description ? item?.description : item?.title}

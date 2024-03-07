@@ -57,12 +57,15 @@ function EditTableSpecialOfferPop(props) {
                     if (res?.status == 200) {
                         dispatch(setIsGet(true))
                         setIsLoading(false)
+                        setFileImg([])
                         setDescriptions(['', '', ''])
                         notifySuccess("Insertd Successfully.")
                         closeModal()
                     }
                     else {
                         notifyError("Something wrong !!")
+                        setFileImg([])
+                        setDescriptions(['', '', ''])
                         setIsLoading(false)
                         closeModal()
                     }
@@ -209,7 +212,7 @@ function EditTableSpecialOfferPop(props) {
                                                             </div>
                                                         </div>
                                                         {
-                                                            !oldData && 
+                                                            !oldData &&
                                                             <div className='col-span-3'>
                                                                 <div className="mb-4 mt-6">
                                                                     {descriptions.map((desc, index) => (

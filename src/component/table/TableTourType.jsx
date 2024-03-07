@@ -155,7 +155,7 @@ const TableTourType = () => {
                                                             {row?.title}
                                                         </TableCell>
                                                         <TableCell>
-                                                            <div className='hover:text-blue-600 cursor-pointer' onClick={() => handleDetailOpen(row)}>{row?.description}</div>
+                                                            <div className='hover:text-blue-600 cursor-pointer line-clamp-5' onClick={() => handleDetailOpen(row)}>{row?.description}</div>
                                                         </TableCell>
                                                         <TableCell>
                                                             <img src={`${BASE_URL}/images?fileName=${row?.image}`} alt="Image" className='w-28 h-16 rounded object-cover' />

@@ -30,9 +30,9 @@ export const add_popular = async (newRow, fileImg) => {
         formData.append('imageFile', fileImg);
         formData.append('title', newRow.title);
         formData.append('duration', newRow.duration);
-        formData.append('price', newRow.price);
+        formData.append('price', newRow.price + '$');
 
-        const response = await API_HEADER.post(`/populartours`, formData, config)
+        const response = await API_HEADER.post(`/populartour`, formData, config)
         return response
     }
     catch (e) {
@@ -40,16 +40,16 @@ export const add_popular = async (newRow, fileImg) => {
     }
 }
 export const update_popular = async (updateRow, fileImg, id) => {
-    console.log(updateRow)
-    console.log(fileImg)
-    console.log(id)
+    // console.log(updateRow)
+    // console.log(fileImg)
+    // console.log(id)
     try {
         const formData = new FormData();
         formData.append('imageFile', fileImg);
         formData.append('id', id);
         formData.append('title', updateRow.title);
         formData.append('duration', updateRow.duration);
-        formData.append('price', updateRow.price);
+        formData.append('price', updateRow.price + '$');
 
         const response = await API_HEADER.put(`/updatepopulartours`, formData, config)
         return response
@@ -73,7 +73,7 @@ export const upload_excel = async (formData) => {
         const response = await API_HEADER.post(`/info/file-upload`, formData)
         return response
     }
-    catch (e){
+    catch (e) {
         console.log(e)
     }
 }
@@ -83,7 +83,7 @@ export const insert_winner = async (formData) => {
         const response = await API_HEADER.post(`/info/insert-winner-information`, formData)
         return response
     }
-    catch (e){
+    catch (e) {
         console.log(e)
     }
 }
@@ -93,7 +93,7 @@ export const reset_customer = async () => {
         const response = await API_HEADER.delete(`/api/v1/info/reset-customer-imformation`)
         return response
     }
-    catch (e){
+    catch (e) {
         console.log(e)
     }
 }

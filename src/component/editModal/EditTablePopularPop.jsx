@@ -174,13 +174,13 @@ function EditTablePopularPop(props) {
 
                                                     <div className="mb-4">
                                                         <span className="label-text text-base font-sans">
-                                                            New Price
+                                                            New Price ($)
                                                         </span>
                                                         <div className="flex items-center bg-white-smoke rounded py-1 px-3">
                                                             <LockOutlinedIcon className="text-gray-500" />
                                                             <Field
-                                                                type="text"
-                                                                placeholder="*********"
+                                                                type="number"
+                                                                placeholder="enter price as dolla"
                                                                 name="price"
                                                                 id="price"
                                                                 // value={password.price || ''}

@@ -18,7 +18,7 @@ import ExpandCircleDownOutlinedIcon from '@mui/icons-material/ExpandCircleDownOu
 import { BASE_URL, notifyError, notifySuccess } from '../../redux/Constants';
 import AlertMesages from '../AlertMesages';
 import { useDispatch } from 'react-redux';
-import { setIsGet, setListOffer } from '../../redux/slice/ListSlice';
+import { setImageList, setIsGet, setListOffer } from '../../redux/slice/ListSlice';
 import { useSelector } from 'react-redux';
 import TableSkeleton from '../skeleton/TableSkeleton';
 import { get_specialOffer } from '../../redux/service/specialOfferService';
@@ -43,9 +43,6 @@ const TableSpecialOffer = () => {
 
     const dispatch = useDispatch();
     const data = useSelector((state) => state.allList.listOffer)
-    const subList = data?.map((item) => {
-        return item?.imgList
-    })
 
     const isGet = useSelector((state) => state.allList.isGet)
     const newData = data?.map((item, index) => ({ ...item, no: index + 1 }));
@@ -56,16 +53,8 @@ const TableSpecialOffer = () => {
         { id: 'title', label: 'Title', minWidth: 100 },
         { id: 'duration', label: 'Duration', minWidth: 60 },
         { id: 'price', label: 'Price', minWidth: 60 },
+        { id: 'action', label: 'Action', minWidth: 70 }
     ];
-
-    for (let i = 1; i <= subList?.length - 1; i++) {
-        columns.push({
-            id: `fileName${i}`,
-            label: `Picture${i}`,
-            minWidth: 60,
-        });
-    }
-    columns.push({ id: '', label: 'Action', minWidth: 70 });
 
     useEffect(() => {
         table()
@@ -96,6 +85,7 @@ const TableSpecialOffer = () => {
 
     const handleEditClose = () => {
         setOpenEditModal(false);
+        dispatch(setImageList([]))
     };
 
     const [openDeleteModal, setOpenDeleteModal] = useState(false);
@@ -155,7 +145,7 @@ const TableSpecialOffer = () => {
                                             ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                             .map((row) => {
                                                 return (
-                                                    <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
+                                                    <TableRow hover role="checkbox" tabIndex={-1} key={row.no}>
                                                         <TableCell>
                                                             {row?.no}
                                                         </TableCell>
@@ -168,16 +158,7 @@ const TableSpecialOffer = () => {
                                                         <TableCell>
                                                             {row?.price}
                                                         </TableCell>
-                                                        {
-                                                            row.imgList
-                                                                ?.map((item) => {
-                                                                    return (
-                                                                        <TableCell>
-                                                                            <img src={`${BASE_URL}/images?fileName=${item?.fileName}`} alt="Image" className='w-28 h-16 rounded object-cover' />
-                                                                        </TableCell>
-                                                                    )
-                                                                })
-                                                        }
+
                                                         <TableCell>
                                                             <ExpandCircleDownOutlinedIcon onClick={() => handleDetailOpen(row)} sx={{ fontSize: '28px' }} className='text-green-500 mr-2 border rounded-full bg-green-100 p-1 cursor-pointer' />
                                                             <ModeEditOutlineOutlinedIcon className='text-blue-500 mr-2 border rounded-full bg-blue-100 p-1 cursor-pointer'

@@ -36,7 +36,7 @@ export const delete_specialOffer = async (id) => {
 }
 
 export const add_specialOffer = async (values, descriptions, fileImg) => {
-    console.log(fileImg)
+    // console.log(fileImg)
     try {
         const formData = new FormData();
         formData.append('title', values.title);
@@ -50,6 +50,8 @@ export const add_specialOffer = async (values, descriptions, fileImg) => {
         fileImg.forEach((element, index) => {
             formData.append('imgList', element);
         });
+
+        console.log(formData)
 
         const response = await API_HEADER.post(`/specialOffer`, formData, config)
         return response

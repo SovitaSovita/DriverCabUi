@@ -8,25 +8,38 @@ import { Field, Form, Formik } from 'formik';
 import { specialOfferSchema } from '../../utils/Validation';
 
 import SaveAsOutlinedIcon from '@mui/icons-material/SaveAsOutlined';
-import { useDispatch } from 'react-redux';
-import { setIsGet } from '../../redux/slice/ListSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { setImageList, setIsGet } from '../../redux/slice/ListSlice';
 import { add_specialOffer, update_specialOffer } from '../../redux/service/specialOfferService';
+import ModalImageUpload from '../ModalImageUpload';
 
 function EditTableSpecialOfferPop(props) {
 
     const { isOpen, closeModal, oldData } = props
 
-    const [newData, setNewData] = useState({})
+    const imageList = useSelector((state) => state.allList.imageList)
+    const file = imageList.map((item) => {
+        return item.file;
+    })
+
+    // console.log(imageList)
+
     const dispatch = useDispatch()
 
+    const generateInitialDescriptions = () => {
+        const initialDescriptions = [];
+        for (let i = 0; i < imageList.length; i++) {
+            initialDescriptions.push('');
+        }
+        return initialDescriptions;
+    };
+
+    const [descriptions, setDescriptions] = useState([]);
+
     useEffect(() => {
-        setNewData({ ...oldData })
-    }, [])
+        setDescriptions(generateInitialDescriptions());
+    }, [imageList]);
 
-    const [fileImg, setFileImg] = useState([])
-
-    //just add more array if u want to insert desc and image more than 3
-    const [descriptions, setDescriptions] = useState(['', '', ''])
     const [isLoading, setIsLoading] = useState(false)
 
     const handleInputDescChange = (e, index) => {
@@ -38,37 +51,26 @@ function EditTableSpecialOfferPop(props) {
         });
     };
 
-    const handleFileChange = (e, index) => {
-        const file = e.target.files[0];
-
-        if (file) {
-            setFileImg((prevFileImg) => [
-                ...prevFileImg, file
-            ]);
-        }
-    };
-
     const onSubmitHandle = (values) => {
 
         if (oldData === null) {
-            if (descriptions[0] && descriptions[1] && descriptions[2] && fileImg[0] && fileImg[1] && fileImg[2]) {
+            const areDescriptionsValid = descriptions.every((desc) => desc !== '');
+
+            if (areDescriptionsValid) {
                 setIsLoading(true)
-                add_specialOffer(values, descriptions, fileImg).then((res) => {
+                add_specialOffer(values, descriptions, file).then((res) => {
                     if (res?.status == 200) {
                         dispatch(setIsGet(true))
-                        setIsLoading(false)
-                        setFileImg([])
-                        setDescriptions(['', '', ''])
                         notifySuccess("Insertd Successfully.")
-                        closeModal()
                     }
                     else {
                         notifyError("Something wrong !!")
-                        setFileImg([])
-                        setDescriptions(['', '', ''])
-                        setIsLoading(false)
-                        closeModal()
                     }
+
+                    setIsLoading(false)
+                    setDescriptions([])
+                    dispatch(setImageList([]))
+                    closeModal()
                 })
             }
             else {
@@ -81,7 +83,6 @@ function EditTableSpecialOfferPop(props) {
                     dispatch(setIsGet(true))
                     setIsLoading(false)
                     notifySuccess("Updated Successfully.")
-                    setNewData({})
                     closeModal()
                 }
                 else {
@@ -93,6 +94,16 @@ function EditTableSpecialOfferPop(props) {
         }
 
     }
+
+    const [openImgUpload, setOpenImgUpload] = useState(false)
+    const handleOpenImgUpload = () => {
+        setOpenImgUpload(true)
+    }
+    const handleCloseImgUpload = () => {
+        setOpenImgUpload(false)
+    }
+
+
     return (
         <div>
             {/* Alert mesage */}
@@ -210,6 +221,15 @@ function EditTableSpecialOfferPop(props) {
                                                                     </div>
                                                                 ) : null}
                                                             </div>
+
+                                                            <div className="mb-4">
+                                                                <span className="label-text text-base font-sans">
+                                                                    Upload Images :
+                                                                </span>
+                                                                <a
+                                                                    className='underline ml-3 text-blue-800'
+                                                                    onClick={handleOpenImgUpload}>Upload</a>
+                                                            </div>
                                                         </div>
                                                         {
                                                             !oldData &&
@@ -233,8 +253,6 @@ function EditTableSpecialOfferPop(props) {
                                                                                     {errors.descriptions[index]}
                                                                                 </div>
                                                                             ) : null}
-                                                                            <FileInput
-                                                                                onChange={(e) => handleFileChange(e, index)} />
                                                                         </div>
                                                                     ))}
                                                                 </div>
@@ -245,7 +263,7 @@ function EditTableSpecialOfferPop(props) {
                                                     <div className="flex justify-end mt-10">
                                                         <Button
                                                             type="submit"
-                                                            variant="contained" endIcon={<SaveAsOutlinedIcon />}>
+                                                            variant="contained" endicon={<SaveAsOutlinedIcon />}>
                                                             {isLoading ? <Spinner /> : "Save"}
                                                         </Button>
                                                     </div>
@@ -256,6 +274,9 @@ function EditTableSpecialOfferPop(props) {
                                 </Dialog.Panel>
                             </Transition.Child>
                         </div>
+
+                        <ModalImageUpload open={openImgUpload}
+                            handleClose={handleCloseImgUpload} />
                     </div>
                 </Dialog>
             </Transition>

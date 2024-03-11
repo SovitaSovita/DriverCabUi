@@ -36,24 +36,28 @@ function DetinationDetail() {
                     <Link onClick={() => { navigate(-1) }} className="px-4 py-1 rounded-lg mt-3 font-merienda bg-root_low text-white hover:text-white-smoke border">Back</Link>
                   )
                 }
-                <div className="rounded-lg h-72 overflow-hidden mt-6">
-                  <img alt="content" className="object-cover object-center h-full w-full" src={`${BASE_URL}/images?fileName=${item?.fileName}`} />
-                </div>
                 <div className="flex flex-col sm:flex-row mt-10">
+
+                  <div className="rounded-lg lg:w-[70%] overflow-hidden mt-6">
+                    <img alt="content" className="object-cover object-center h-full w-full" src={`${BASE_URL}/images?fileName=${item?.fileName}`} />
+                  </div>
                   {
                     index < 1 && (
-                      <div className="sm:w-1/3 text-center sm:pr-8 sm:py-8">
+                      <div className="sm:w-2/3 text-center sm:pr-8 sm:py-8">
                         <div className="flex flex-col items-center text-center justify-center">
-                          <h2 className="font-medium title-font mt-4 text-gray-900 text-lg">{data?.title}</h2>
+                          <h2 className="font-medium title-font mt-4 text-gray-900 lg:text-2xl text-xl">{data?.title}</h2>
                           <div className="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
-                          <p className="text-base">{data?.duration}.</p>
-                          <p className="text-base">{data?.price}.</p>
-                          <Link to={'/contact'} className="rounded-lg mt-3 font-merienda border-root_low text-root_low border p-1">
+                          <p className="text-base"><span className='mr-3'>Duration : </span> {data?.duration}.</p>
+                          <p className="text-base"><span className='mr-5'>Price : </span>{data?.price}.</p>
+                          <Link to={'/contact'} className="rounded-lg mt-5 font-merienda border-root_low text-root_low border p-1">
                             Contact Us </Link>
                         </div>
                       </div>
                     )
                   }
+                </div>
+                <div className="flex flex-col sm:flex-row mt-10">
+
                   <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
                     <p className="leading-relaxed text-lg mb-4">
                       {item.description}

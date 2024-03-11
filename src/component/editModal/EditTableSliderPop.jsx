@@ -168,7 +168,7 @@ function EditTableSliderPop(props) {
                                                     <div className="flex justify-end mt-10">
                                                         <Button
                                                             type="submit"
-                                                            variant="contained" endIcon={<SaveAsOutlinedIcon />}>
+                                                            variant="contained" endicon={<SaveAsOutlinedIcon />}>
                                                             {isLoading ? <Spinner /> : "Save"}
                                                         </Button>
                                                     </div>

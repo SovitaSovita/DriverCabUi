@@ -36,7 +36,15 @@ function TourTypeDetail() {
                   <div className="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
                   <Link to={'/contact'} className="rounded-lg font-merienda border-root_low text-root_low border p-1">
                     Contact Us </Link>
+
+                  <div id="TA_selfserveprop935" className="TA_selfservepropv w-36 flex justify-center mt-8">
+                    <ul id="5wm6Ir" className="TA_links DZqges7iESt">
+                      <li id="q23cqKt1gPBW" className="K6OAtASt"><a target="_blank" href="https://www.tripadvisor.com/Attraction_Review-g293940-d12293659-Reviews-Cambodia_Cab_Driver-Phnom_Penh.html"><img src="https://www.tripadvisor.com/img/cdsi/img2/branding/v2/Tripadvisor_lockup_horizontal_secondary_registered-11900-2.svg" alt="TripAdvisor" /></a></li>
+                    </ul>
+                    <script async src="https://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=935&amp;locationId=12293659&amp;lang=en_US&amp;rating=true&amp;nreviews=5&amp;writereviewlink=true&amp;popIdx=true&amp;iswide=false&amp;border=true&amp;display_version=2" data-loadtrk onload="this.loadtrk=true"></script>
+                  </div>
                 </div>
+
               </div>
               <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
                 <p className="leading-relaxed text-lg mb-4">
